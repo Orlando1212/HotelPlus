@@ -1,6 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import clienteRouter from './routes/cliente_routes.js'
+import clienteRouter from './routes/cliente_route.js'
+import quartoRouter from './routes/quarto_route.js';
+import reservaRouter from './routes/reserva_route.js';
+import loginRouter from './routes/login_route.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -19,12 +22,18 @@ app.use( bodyParser.urlencoded({extended : true}) )
 app.use("/cliente", clienteRouter)
 
 //endpoints para reserva
-app.use("/reserva",clienteRouter)
+app.use("/reserva",reservaRouter)
 
-app.use("/quarto",clienteRouter)
+app.use("/quarto",quartoRouter)
+
+app.use("/login",loginRouter)
 
 app.get("/criar/cliente", (req, res)=>{
   res.sendFile(__dirname + "/view/cadCliente.html")
+})
+
+app.get("/login", (req, res)=>{
+  res.sendFile(__dirname + "/view/loginUser.html")
 })
 
 // executa o servidor na porta 3000
