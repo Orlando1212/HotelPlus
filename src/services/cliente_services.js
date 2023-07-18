@@ -15,7 +15,7 @@ async function deleteCliente(id) {
 }
 
 async function createCliente( cliente ) {
-	var consultaprod = await getCliente(cliente.id);
+	var consultaprod = await getCliente(cliente.id_cliente);
 	
 	if (consultaprod.length>0){
 		return "Erro, cliente já existe"
@@ -25,7 +25,7 @@ async function createCliente( cliente ) {
 }
 
 async function updateCliente(id,cliente) {
-	var consultaprod = await getCliente(id);
+	var consultaprod = await getCliente(id,cliente);
 	
 	if (consultaprod.length==0){
 		return "Erro!!! Cliente não existe."
