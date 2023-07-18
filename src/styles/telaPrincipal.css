@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Background-Foto {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('../utils/img/Background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Barra {
+    position: absolute;
+    width: 1536px;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.Icon {
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    left: 25px;
+    top: 0px;
+
+    background: url(/src/utils/img/hotelIcon.png);
+}
+
+.Titulo {
+    position: absolute;
+    width: 148px;
+    height: 84px;
+    left: 115px;
+    top: 40px;
+
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 30px;
+
+    color: #85DE76;
+
+    /* Vector 1 */
+    position: absolute;
+    width: 47px;
+    height: 47px;
+}
+
+.SairIcon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 1378px;
+    top: 25px;
+
+    background: url(/src/utils/img/sairIcon.png);
+}
+
+.Sair {
+    position: absolute;
+    width: 81px;
+    height: 40px;
+    left: 1430px;
+    top: 40px;
+
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 30px;
+
+    color: #85DE76;
+}
+
+.BotaoGeral {
+    display: grid;
+    column-gap: 100px;
+    row-gap: 50px;
+}
+
+.BotaoTop {
+    display: grid;
+    grid-template-rows: auto auto; 
+    grid-template-columns: auto auto; 
+    justify-content: center; 
+    margin: 100px;
+}
+
+.BotaoBottom {
+    display: grid;
+    grid-template-rows: auto auto; 
+    grid-template-columns: auto auto; 
+    justify-content: center;
+    margin: 100px;
+}
+
+.BotaoFundo {
+    position: center;
+    width: 200px;
+    height: 200px;
+    left: 250px;
+    top: 272px;
+
+    background: #FFFFFF;
+    border-radius: 40px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border: #FFFFFF;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.BotaoFrente {
+    width: 175px;
+    height: 175px;
+
+    border: 3px solid #85DE76;
+    border-radius: 40px;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LogoCadastrar {
+    display: flex;
+    margin-top: 19.5px;
+
+    width: 100px;
+    height: 100px;
+}
+
+.CadastrarCliente {
+    width: 263px;
+    height: 36px;
+
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 39px;
+
+    color: #85DE76;
+}
