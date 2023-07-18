@@ -1,35 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/cadCliente.css">
+    <title>Document</title>
+</head>
 <body>
+  <div class="Background-Foto">
+    <div class="Card1">
+      <div class="Card2">
+        <h2 class="Titulo">Cadastrar Cliente</h2>
 
-<h2>Cadastrar Cliente</h2>
+        <form class="Formulario" action="http://localhost:3000/cliente"  method="post">
 
-<form action="http://localhost:3000/cliente"  method="post">
+          <div>
+            <p>Primeiro Nome</p>
+            <div class="Input-Container">
+              <label for="primeiro_nome"></label><br>
+              <input class="Input" type="text" id="primeiro_nome"   name="primeiro_nome"><br><br>
+            </div>
+          </div>
 
-  <label for="cpf">CPF:</label><br>
-  <input type="text" id="cpf" name="cpf"><br><br>
+          <div>
+            <p>Sobrenome</p>
+            <div class="Input-Container">
+              <label for="ultimo_nome"></label><br>
+              <input class="Input" type="text" id="ultimo_nome"   name="ultimo_nome"><br><br>
+            </div>
+          </div>
 
-  <label for="primeiro_nome">Primeiro Nome:</label><br>
-  <input type="text" id="primeiro_nome" name="primeiro_nome"><br><br>
+          <div>
+            <p>CPF</p>
+            <div class="Input-Container">
+              <label for="cpf"></label><br>
+              <input class="Input" type="text" id="cpf" name="cpf"><br><br>
+          </div>
+        </div>
 
-  <label for="ultimo_nome">Ultimo Nome:</label><br>
-  <input type="text" id="ultimo_nome" name="ultimo_nome"><br><br>
-  
-  <label for="data_nasc">Nascimento:</label><br>
-  <input type="date" id="data_nasc" name="data_nasc"><br><br>
-  
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email"><br><br>
-  
-  <label for="ddd_telefone">Telefone:</label><br>
-  <input type="text" id="ddd_telefone" name="ddd_telefone"><br><br>
-  
-  <input type="submit" value="Salvar">
-  <input type="reset" value="Limpar">
+        <div>
+          <p>Celular</p>
+          <div class="Input-Container">
+            <label for="ddd_telefone"></label><br>
+            <input class="Input" type="text" id="ddd_telefone"    name="ddd_telefone"><br><br>
+          </div>
+        </div>
 
-</form> 
+        <div>
+          <p>Data de Nascimento</p>
+          <div class="Input-Container">
+            <label for="data_nasc"></label><br>
+            <input class="Input" type="date" id="data_nasc" name="data_nasc"><br><br>
+          </div>
+        </div>
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+          <div>
+          <p>E-mail</p>
+          <div class="Input-Container">
+            <label for="email"></label><br>
+            <input class="Input" type="email" id="email" name="email"><br><br>
+          </div>
+          </div>
 
+          <div class="Botoes-Inferiores">
+            <input class="Botao-Cancelar" type="submit" value="Salvar">
+            <input class="Botao-Cadastrar" type="submit" value="Salvar">
+            <input class="Botao-Limpar" type="reset" value="Limpar">
+          </div>
+
+        </form> 
+        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+      </div>
+    </div>
+</div>
 </body>
 </html>

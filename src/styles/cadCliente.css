@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Background-Foto {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('../utils/img/Background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Card1 {
+    width: 1200px;
+    height: 800px;
+    background-color: white;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card2 {
+    width: 1150px;
+    height: 750px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #85DE76;
+
+}
+
+.Titulo {
+    padding-left: 45px;
+    padding-top: 20px;
+    font-size: 50px;
+    font-family: 'Varela Round';
+    font-weight: 400;
+    color: #85DE76;
+}
+
+.Formulario {
+    display: grid;
+    grid-template-columns: 500px 500px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 50px;
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+p {
+    font-family: 'Varela Round';
+    font-weight: 400;
+    font-size: 28px;
+    color: #85DE76;
+    padding-bottom: 10px;
+}
+
+.Input-Container {
+    box-shadow: 0 0 0 4px #85DE76;
+    border-radius: 8px;
+    width: 500px;
+    height: 80px;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Input {
+    padding: 0px 15px;
+    width: 500px;
+    height: 80px;
+    border: 0;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 26px;
+    font-family: Noto Sans;
+    font-weight: bold;
+    color: #85DE76;
+}
+
+::placeholder {
+    color: #85DE76;
+}
+
+.Input:focus{
+    outline: none;
+    color: #62ac55;
+}
+
+.Botoes-Inferiores {
+    display: flex;
+}
