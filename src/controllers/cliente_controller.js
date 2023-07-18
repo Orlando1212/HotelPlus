@@ -1,6 +1,6 @@
 import conectar from "../database/db.js";
 import {queryCreateCliente,queryDeleteCliente,queryGetAllCliente,queryUpdateCliente,queryGetCliente,
-idClienteString,ConstantesDeRequisicaoCliente,} from '../proprities/cliente_proprities.js'
+idClienteString,ConstantesDeRequisicaoCliente,} from '../properties/cliente_properties.js'
 
 const pool = conectar();
 var resposta;
@@ -18,7 +18,6 @@ async function getAllClientes(req, res) {
 }
 
 async function getCliente(req, res) {
-	res.send(idClienteString + req.params.id_cliente);	
 	try {
 		resposta = await pool.query(queryGetCliente, [req.params.id_cliente] );
 		console.log(resposta.rows)
