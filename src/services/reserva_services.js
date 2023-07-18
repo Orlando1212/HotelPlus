@@ -24,7 +24,7 @@ async function createReserva( reserva ) {
 	return (await reservaRepositories.createReserva( reserva ))
 }
 
-async function updateReserva(id,Reserva) {
+async function updateReserva(id,reserva) {
 	var consultaprod = await getReserva(id);
 	
 	if (consultaprod.length==0){
