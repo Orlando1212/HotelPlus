@@ -15,11 +15,6 @@ async function deleteCliente(id) {
 }
 
 async function createCliente( cliente ) {
-	var consultaprod = await getCliente(cliente.id_cliente);
-	
-	if (consultaprod.length>0){
-		return "Erro, cliente já existe"
-	}
 	
 	return ( await clienteRepositories.createCliente( cliente ) )
 }
