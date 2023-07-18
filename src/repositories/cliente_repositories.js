@@ -31,7 +31,7 @@ async function createCliente(cliente) {
 			cliente.email, cliente.ddd_telefone]
 			);
 			console.log(resposta.rows);
-			res.send(resposta.rows);	
+			return resposta.rows;	
 		} catch(err){
 			console.log(err);
 		}
