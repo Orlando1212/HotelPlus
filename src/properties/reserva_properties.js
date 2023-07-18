@@ -1,33 +1,27 @@
 //QUERY\\
-export const queryCreateCliente = 'INSERT INTO cliente (id_usuario, cpf, primeiro_nome, ultimo_nome, data_nasc, email, ddd_telefone) ' +
-'VALUES ((SELECT id_usuario FROM usuario WHERE id_usuario = 2), $1, $2, $3, $4, $5, $6) ' +
+export const queryCreateReserva = 'INSERT INTO reserva (id_quarto,id_cliente, check-in_date, check-out_date, qnt_pessoas, reserva_valor) ' +
+'VALUES ( $1, $2, $3, $4, $5, $6) ' +
 'RETURNING *'
-export const queryUpdateCliente = 'UPDATE cliente SET cpf = $1, primeiro_nome = $2, ultimo_nome = $3, data_nasc = $4, email = $5, ddd_telefone = $6'
-export const queryDeleteCliente = 'DELETE FROM cliente WHERE id_cliente = $1'
-export const queryGetCliente = 'SELECT id_cliente FROM cliente WHERE id_cliente =$1'
-export const queryGetAllCliente = 'SELECT * FROM cliente;'
+export const queryUpdateReserva = 'UPDATE reserva SET check-in_date = $1, check-out_date = $2, qnt_pessoas = $3, reserva_valor = $4'
+export const queryDeleteReserva = 'DELETE FROM reserva WHERE id_reserva = $1'
+export const queryGetReserva = 'SELECT id_reserva FROM reserva WHERE id_reserva =$1'
+export const queryGetAllReserva = 'SELECT * FROM reserva;'
 
 //Request Body\\
 export function ConstantesDeRequisicaoCliente(req) {
-    const primeiro_nome = req.body.primeiro_nome;
-    const ultimo_nome = req.body.ultimo_nome;
-    const email = req.body.email;
-    const data_nascimento = req.body.data_nasc;
-    const cpf = req.body.cpf;
-    const ddd_telefone = req.body.ddd_telefone;
-    const id_usuario = req.body.id_usuario;
-  
+    const check_in_date = req.body.check-in_date;
+    const check_out_date = req.body.check-out_date;
+    const qnt_pessoas = req.body.qnt_pessoas;
+    const reserva_valor = req.body.reserva_valor;
+
     return {
-      primeiro_nome,
-      ultimo_nome,
-      email,
-      data_nascimento,
-      cpf,
-      ddd_telefone,
-      id_usuario
+      check_in_date,
+      check_out_date,
+      qnt_pessoas,
+      reserva_valor,
     };
   }
   
 //Strings\\
 
-export const idClienteString = "id_cliente:";
+export const idClienteString = "id_reserva:";
