@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Background-Foto {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('../utils/img/Background.png');
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card1 {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 0 10px red inset;
+    
+}
+
+.Card2 {
+
+}
+
