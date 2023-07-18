@@ -18,6 +18,11 @@ app.use( bodyParser.urlencoded({extended : true}) )
 // endpoints para cliente
 app.use("/cliente", clienteRouter)
 
+//endpoints para reserva
+app.use("/reserva",clienteRouter)
+
+app.use("/quarto",clienteRouter)
+
 app.get("/criar/cliente", (req, res)=>{
   res.sendFile(__dirname + "/view/cadCliente.html")
 })
