@@ -12,6 +12,8 @@ export const __dirname = dirname(__filename);
 
 const app = express()
 
+app.use(express.static('view'))
+
 // converte o pacote request para JSON
 app.use( express.json() )
 
@@ -31,7 +33,7 @@ app.use("/quarto",quartoRouter)
 app.use("/login",loginRouter)
 
 app.get("/criar/cliente", (req, res)=>{
-  res.sendFile(__dirname + "/view/cadCliente.html")
+  res.sendFile(__dirname + "cadCliente.html")
 })
 
 app.get("/", (req, res)=>{

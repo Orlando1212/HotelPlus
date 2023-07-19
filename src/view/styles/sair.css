@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Background-Foto {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('../utils/img/Background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card1 {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card2 {
+    width: 550px;
+    height: 550px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #85DE76;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Logo {
+    width: 124px;
+    height: 150px;
+    padding-top: 10px;
+    margin-top: 35px;
+
+}
+
+.Confirmacao {
+    position: absolute;
+    margin-top: 253px;
+
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #85DE76;
+}
+
+.BotoesGeral {
+    display: grid;
+    row-gap: 25px;
+    margin-top: 150px;
+}
+
+.BotaoAfirm {
+    display: grid;
+    grid-template-rows: auto; 
+    grid-template-columns: auto; 
+    justify-content: center; 
+
+    position: center;
+    width: 320px;
+    height: 70px;
+    left: 250px;
+    top: 597px;
+
+    background: #85DE76;
+    border-radius: 40px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border: #85DE76;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.BotaoDentro {
+    width: 295px;
+    height: 45px;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 40px;
+    margin-left: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Text {
+    position: absolute;
+    width: 299.52px;
+    height: 25.67px;
+
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.BotaoNeg {
+    display: grid;
+    grid-template-rows: auto; 
+    grid-template-columns: auto; 
+    justify-content: center; 
+
+    position: center;
+    width: 320px;
+    height: 70px;
+    left: 250px;
+    top: 597px;
+
+    background: #DE7676;
+    border-radius: 40px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border: #DE7676;
+
+    align-items: center;
+    justify-content: center;
+}
