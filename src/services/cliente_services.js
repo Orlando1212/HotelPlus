@@ -20,12 +20,8 @@ async function createCliente( cliente ) {
 }
 
 async function updateCliente(id,cliente) {
-	var consultaprod = await getCliente(id,cliente);
-	
-	if (consultaprod.length==0){
-		return "Erro!!! Cliente não existe."
-	}
-	return ( await clienteRepositories.updateCliente(id) )
+	console.log(cliente);
+	return ( await clienteRepositories.updateCliente(id,cliente) )
 }
 
 export default{getAllClientes, getCliente, createCliente, 

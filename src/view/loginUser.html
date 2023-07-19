@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/loginUser.css">
-    <title>Document</title>
+    <script src ="/src/scripts/login.js"></script>
+    <title>Login</title>
 </head>
 <body>
     <div class="Background-Foto">
@@ -12,11 +13,11 @@
             <div class="Card2">
                 <img class="Logo" src="../utils/img/Hotel+.png" alt="">
 
-                <form class="Formulario" action="">
+                <form class="Formulario" onsubmit="LoginAutenticacao()" action="http://localhost:3000/login" method="post" id="loginForm">
 
                     <div class="Input-Container">
                         <img class="Icon" src="../utils/img/user.png" alt="">
-                        <input class="Input" type="text" name="usuario" id="usuario" placeholder="Usuário">
+                        <input class="Input" type="email" name="email" id="email" placeholder="Email">
                     </div>
 
                     <div class="Input-Container">
@@ -25,7 +26,7 @@
                     </div>
 
                     <div class="Submit-Container">
-                        <input class="Submit" type="submit" name="entrar" id="entrar">
+                        <input class="Submit" type="submit" value = "Enviar">
                     </div>
                     
                 </form>

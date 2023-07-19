@@ -36,14 +36,14 @@ async function getReserva(req, res) {
 async function createReserva(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoReserva(req)
-	
-	if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
+	try {	
+	   if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
 	   requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
 	   requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
 	   requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
 	   res.send("Apenas descrição pode ser vazio!")
-	}
-	try {
+		}
+
 		reservaData = req.body;
 		novoReserva = await reservaService.createCliente(reservaData);
 		res.json(novoReserva);
@@ -70,14 +70,15 @@ async function deleteReserva(req, res) {
 async function updateReserva(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoReserva(req)
-    
-	if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
-	   requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
-	   requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
-	   requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
-	   res.send("Apenas descrição pode ser vazio!")
-	}
+
 	try {
+		if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
+		requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
+		requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
+		requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
+		res.send("Apenas descrição pode ser vazio!")
+		}
+
 		reservaId = parseInt(req.params.id_reserva);
 		atualizaData = req.body;
 		atualizaReserva = await reservaService.updateCliente(reservaId, atualizaData);

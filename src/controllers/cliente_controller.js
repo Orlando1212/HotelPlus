@@ -36,14 +36,14 @@ async function getCliente(req, res) {
 async function createCliente(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoCliente(req)
-	
-	if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
+	try {	
+		if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
 	   requestBody.primeiro_nome ==undefined || requestBody.primeiro_nome ==null || requestBody.primeiro_nome =="" ||
 	   requestBody.ultimo_nome == undefined || requestBody.ultimo_nome == null || requestBody.ultimo_nome == "" ||
 	   requestBody.email == undefined || requestBody.email == null || requestBody.email == "" ){
 	   res.send(" CPF , nome e email não pode ser vazios!!!")
-	}
-	try {
+		}
+		
 		clienteData = req.body;
 		novoCliente = await clienteService.createCliente(clienteData);
 		res.json(novoCliente);
@@ -71,15 +71,16 @@ async function updateCliente(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoCliente(req)
 	
-	if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
+	try {	
+		if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
 	   requestBody.primeiro_nome ==undefined || requestBody.primeiro_nome ==null || requestBody.primeiro_nome =="" ||
 	   requestBody.ultimo_nome == undefined || requestBody.ultimo_nome == null || requestBody.ultimo_nome == "" ||
 	   requestBody.email == undefined || requestBody.email == null || requestBody.email == "" ){
-	   res.send(" CPF , nome e email não pode ser vazios!!!")
-	}
-	try {
+	   res.send(" CPF , nome e email não pode ser vazios!!!")		
+		}
+
 		clienteId = parseInt(req.params.id_cliente);
-		atualizaData = req.body;
+		atualizaData = requestBody;
 		atualizaCliente = await clienteService.updateCliente(clienteId, atualizaData);
 		if (!atualizaCliente) {
 		  res.status(404).json({ message: 'Cliente não encontrado.' });
