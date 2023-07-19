@@ -1,7 +1,7 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o envio do formulário (comportamento padrão).
 
-    const username = document.getElementById('usuario').value;
+function LoginAutenticacao(){
+
+    const username = document.getElementById('email').value;
     const password = document.getElementById('senha').value;
 
     // Dados do usuário a serem enviados para o servidor.
@@ -21,15 +21,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(response => {
         if (response.ok) {
             // Login bem-sucedido.
-            Alert('Login realizado com sucesso!');
+            alert('Login realizado com sucesso!');
             // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
         } else {
             // Login falhou.
-            Alert('Login falhou. Verifique suas credenciais.');
+            alert('Login falhou. Verifique suas credenciais.');
         }
     })
     .catch(error => {
         // Ocorreu um erro ao enviar a solicitação.
-        Alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
+        alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
     });
-});
+}
+

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export const __dirname = dirname(__filename);
 
 const app = express()
 
@@ -24,15 +24,17 @@ app.use("/cliente", clienteRouter)
 //endpoints para reserva
 app.use("/reserva",reservaRouter)
 
+//endpoints para quarto
 app.use("/quarto",quartoRouter)
 
+//endpoints para login
 app.use("/login",loginRouter)
 
 app.get("/criar/cliente", (req, res)=>{
   res.sendFile(__dirname + "/view/cadCliente.html")
 })
 
-app.get("/login", (req, res)=>{
+app.get("/", (req, res)=>{
   res.sendFile(__dirname + "/view/loginUser.html")
 })
 

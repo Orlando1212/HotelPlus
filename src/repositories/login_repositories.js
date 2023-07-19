@@ -7,7 +7,7 @@ var resposta;
 
 async function Login(email,senha) {
 	try {
-		resposta = await pool.query(queryLogin,[email.email,senha.senha])
+		resposta = await pool.query(queryLogin,[email,senha])
 		console.log(resposta.rows)
 		return resposta.rows;
 	} catch(err){
