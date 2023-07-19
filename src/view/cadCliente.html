@@ -18,7 +18,7 @@
             <p>Primeiro Nome</p>
             <div class="Input-Container">
               <label for="primeiro_nome"></label><br>
-              <input class="Input" type="text" id="primeiro_nome"   name="primeiro_nome"><br><br>
+              <input class="Input" type="text" id="primeiro_nome"   name="primeiro_nome" placeholder="João"><br><br>
             </div>
           </div>
 
@@ -26,7 +26,7 @@
             <p>Sobrenome</p>
             <div class="Input-Container">
               <label for="ultimo_nome"></label><br>
-              <input class="Input" type="text" id="ultimo_nome"   name="ultimo_nome"><br><br>
+              <input class="Input" type="text" id="ultimo_nome"   name="ultimo_nome" placeholder="Silva"><br><br>
             </div>
           </div>
 
@@ -34,7 +34,7 @@
             <p>CPF</p>
             <div class="Input-Container">
               <label for="cpf"></label><br>
-              <input class="Input" type="text" id="cpf" name="cpf"><br><br>
+              <input class="Input" type="text" id="cpf" name="cpf" placeholder="123.456.789-00"><br><br>
           </div>
         </div>
 
@@ -42,7 +42,7 @@
           <p>Celular</p>
           <div class="Input-Container">
             <label for="ddd_telefone"></label><br>
-            <input class="Input" type="text" id="ddd_telefone"    name="ddd_telefone"><br><br>
+            <input class="Input" type="text" id="ddd_telefone"    name="ddd_telefone" placeholder="(35) 9 9876-5432"><br><br>
           </div>
         </div>
 
@@ -58,18 +58,25 @@
           <p>E-mail</p>
           <div class="Input-Container">
             <label for="email"></label><br>
-            <input class="Input" type="email" id="email" name="email"><br><br>
+            <input class="Input" type="email" id="email" name="email" placeholder="seuemail@mail.com"><br><br>
           </div>
           </div>
 
           <div class="Botoes-Inferiores">
-            <input class="Botao-Cancelar" type="submit" value="Salvar">
-            <input class="Botao-Cadastrar" type="submit" value="Salvar">
-            <input class="Botao-Limpar" type="reset" value="Limpar">
+          <div class="Caixa-Botao-Cancelar">
+            
+            <a class="Botao-Cancelar" href="./loginUser.html">CANCELAR</a>
           </div>
+          <div class="Caixa-Botao-Cadastrar">
+            <input class="Botao-Cadastrar" type="submit" value="CADASTRAR">
+          </div>
+          <div class="Caixa-Botao-Limpar">
+            <img class="img-Limpar" src="../utils/img/data-cleaning.png" alt="">    
+            <input class="Botao-Limpar" type="reset" value="LIMPAR CAMPOS">
+          </div>  
+        </div>
 
         </form> 
-        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
       </div>
     </div>
 </div>
