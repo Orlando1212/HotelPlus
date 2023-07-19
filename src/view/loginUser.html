@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/loginUser.css">
-    <script src ="/src/scripts/login.js"></script>
+    <link rel="stylesheet" href="./styles/loginUser.css">
+    <script type="text/javascript" src ="./scripts/login.js"></script>
+      
     <title>Login</title>
 </head>
 <body>
     <div class="Background-Foto">
         <div class="Card1">
             <div class="Card2">
-                <img class="Logo" src="../utils/img/Hotel+.png" alt="">
+                <img class="Logo" src="./utils/img/Hotel+.png" alt="">
 
-                <form class="Formulario" onsubmit="LoginAutenticacao()" action="http://localhost:3000/login" method="post" id="loginForm">
+                <form class="Formulario" onsubmit="LoginAutenticacao()" id="loginForm">
 
                     <div class="Input-Container">
-                        <img class="Icon" src="../utils/img/user.png" alt="">
+                        <img class="Icon" src="./utils/img/user.png" alt="">
                         <input class="Input" type="email" name="email" id="email" placeholder="Email">
                     </div>
 
                     <div class="Input-Container">
-                        <img class="Icon" src="../utils/img/unlock.png" alt="">
+                        <img class="Icon" src="./utils/img/unlock.png" alt="">
                         <input class="Input" type="password" name="senha" id="senha" placeholder="Senha">
                     </div>
 
                     <div class="Submit-Container">
-                        <input class="Submit" type="submit" value = "Enviar">
+                        <button class="Submit" type="submit">Enviar</button>
                     </div>
                     
                 </form>
             </div>
         </div>
     </div>
-    <script src="../scripts/login.js"></script>
 </body>
 </html>
