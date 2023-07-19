@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/cadQuarto.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="Background-Foto">
+    <div class="Card1">
+      <div class="Card2">
+        <h2 class="Titulo">Cadastrar Quarto</h2>
+
+        <form class="Formulario" action="http://localhost:3000/cliente"  method="post">
+
+        <div class="Containers-Superior">
+            <div class="Container-Input-Texto">
+                <p>Suíte</p>
+                <div class="Input-Container">
+                <label for="suite"></label><br>
+                <input class="Input" type="number" id="suite" name="suite" placeholder="000"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>Capacidade</p>
+                <div class="Input-Container">
+                <label for="capacidade"></label><br>
+                <input class="Input" type="number" id="capacidade"   name="capacidade" placeholder="0"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>Valor da diária</p>
+                <div class="Input-Container">
+                    <label for="valorDia"></label><br>
+                    <input class="Input" type="number" id="valorDia" name="valorDia" placeholder="50"><br><br>
+                </div>
+            </div>
+        </div>
+
+        
+            <div class="Container-Input-Texto">
+                <p>Descrição</p>
+                <div class="Input-Container-Descricao">
+                    <textarea class="Input-Descricao" type="text" id="descricao" name="descricao" placeholder="Descrição do quarto..."></textarea>
+                </div>
+            </div>
+        
+
+        <div class="Botoes-Inferiores">
+            <div class="Caixa-Botao-Cancelar">
+                <a class="Botao-Cancelar" href="./loginUser.html">CANCELAR</a>
+            </div>
+            
+            <div class="Caixa-Botao-Cadastrar">
+                <input class="Botao-Cadastrar" type="submit" value="CADASTRAR">
+            </div> 
+        </div>
+
+        </form> 
+      </div>
+    </div>
+</div>
+</body>
+</html>

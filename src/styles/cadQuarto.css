@@ -21,8 +21,8 @@
 
 
 .Card1 {
-    width: 1200px;
-    height: 800px;
+    width: 900px;
+    height: 700px;
     background-color: white;
     border-radius: 20px;
 
@@ -32,8 +32,8 @@
 }
 
 .Card2 {
-    width: 1150px;
-    height: 750px;
+    width: 850px;
+    height: 650px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 0 4px #85DE76;
@@ -41,24 +41,21 @@
 }
 
 .Titulo {
-    padding-left: 45px;
-    padding-top: 20px;
     font-size: 60px;
     font-family: 'Varela Round';
     font-weight: 400;
     color: #85DE76;
-}
 
-.Formulario {
-    display: grid;
-    grid-template-columns: 500px 500px;
-
+    display: flex;
     align-items: center;
     justify-content: center;
 
+    padding-top: 10px;
+}
+
+.Formulario {
     padding-top: 30px;
-    column-gap: 50px;
-    row-gap: 50px;
+    gap: 50px;
 }
 
 p {
@@ -69,10 +66,25 @@ p {
     padding-bottom: 10px;
 }
 
+.Containers-Superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 30px;
+}
+
+.Container-Input-Texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .Input-Container {
     box-shadow: 0 0 0 4px #85DE76;
     border-radius: 8px;
-    width: 500px;
+    width: 200px;
     height: 80px;
 
     display: flex;
@@ -80,8 +92,7 @@ p {
 }
 
 .Input {
-    padding: 0px 15px;
-    width: 500px;
+    width: 200px;
     height: 80px;
     border: 0;
     border-radius: 5px;
@@ -90,11 +101,47 @@ p {
     font-family: Noto Sans;
     font-weight: bold;
     color: #85DE76;
+    opacity: 0.6;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number]{
+    text-align: center;
+}
+
+.Input-Container-Descricao {
+    box-shadow: 0 0 0 4px #85DE76;
+    border-radius: 8px;
+    width: 700px;
+    height: 200px;
+}
+
+.Input-Descricao {
+    padding: 10px 20px 10px 20px;
+    width: 660px;
+    height: 180px;
+    border: 0;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 26px;
+    font-family: Noto Sans;
+    font-weight: bold;
+    color: #85DE76;
+    opacity: 0.6;
+
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 ::placeholder {
     color: #85DE76;
-    opacity: 0.5;
+}
+
+input[type=number]::-webkit-input-placeholder {
+    text-align: center;
 }
 
 .Input:focus{
@@ -103,31 +150,17 @@ p {
     opacity: 1;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-input[type="date"]::placeholder{
-    color: #85DE76;
-    font-family: Noto Sans;
-    font-size: 26px;
-    border: none;
+.Input-Descricao:focus{
     outline: none;
-    border-radius: 5px;
-    opacity: 0.5;
-}
-
-::-webkit-calendar-picker-indicator{
-    background-image: none;
-    background-size: 0px;
-    width: 0;
-    height: 0;
-}
+    color: #85DE76;
+    opacity: 1;
+} 
 
 .Botoes-Inferiores {
-    display: grid;
-    grid-template-columns: 250px 250px 50px 200px;
-    gap: 50px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    gap: 200px;
 }
 
 .Caixa-Botao-Cancelar {
@@ -222,41 +255,4 @@ input[type="date"]::placeholder{
 .Botao-Cadastrar:hover {
     background-color: white;
     color: #85DE76;
-}
-
-.Caixa-Botao-Limpar {
-    grid-column: 4;
-    box-shadow: 0 0 0 4px #85DE76;
-    border: 0;
-    border-radius: 10px;
-
-    width: 350px;
-    height: 66px;
-
-    font-family: Varela Round;
-    color: white;
-    font-size: 30px;
-    font-weight: 500;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.Botao-Limpar{
-    background-color: transparent;
-    border: 0;
-    border-radius: 5px;
-
-    font-family: Varela Round;
-    color: #85DE76;
-    font-size: 30px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.img-Limpar {
-    width: 40px;
 }

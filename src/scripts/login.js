@@ -33,3 +33,4 @@ function LoginAutenticacao(){
         alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
     });
 }
+
