@@ -16,9 +16,11 @@ async function getAllClientes() {
 }
 
 async function getCliente(id) {
+	console.log(id);
 	try {
-		resposta = await pool.query(queryGetCliente, [id.id_cliente] );
-		console.log(resposta.rows)
+		resposta = await pool.query(queryGetCliente, [id] );
+		console.log("aqui");
+		console.log(resposta.rows);
 		return resposta.rows;
 	} catch(err){
 		console.log(err);
@@ -40,8 +42,9 @@ async function createCliente(cliente) {
 
 async function deleteCliente(id) {
 	console.log("delete cliente")
+	console.log(id);
 	try{
-		resposta = await pool.query(queryDeleteCliente, [id.id_cliente] );
+		resposta = await pool.query(queryDeleteCliente, [id] );
 		console.log(resposta.rows)
 		return resposta.rows;
 	} catch(err){
@@ -50,10 +53,10 @@ async function deleteCliente(id) {
 }
 
 async function updateCliente(id,cliente) {
-	
+		console.log(cliente);
 		try{
 			resposta = await pool.query(queryUpdateCliente, 
-			   [cliente.cpf, cliente.primeiro_nome, cliente.data_nascimento, cliente.email, cliente.ddd_telefone, id.req.params.id_cliente] 
+			   [cliente.cpf, cliente.primeiro_nome, cliente.data_nascimento, cliente.email, cliente.ddd_telefone, id] 
 			);
 			console.log(resposta.rows);
 			return resposta.rows;

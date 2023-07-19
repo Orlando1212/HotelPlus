@@ -36,14 +36,14 @@ async function getQuarto(req, res) {
 async function createQuarto(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoQuarto(req)
-	
-	if(requestBody.numero_quarto==undefined || requestBody.numero_quarto==null || requestBody.numero_quarto=="" ||
-	   requestBody.capacidade ==undefined || requestBody.capacidade ==null || requestBody.capacidade =="" ||
-	   requestBody.preco_noite == undefined || requestBody.preco_noite == null || requestBody.preco_noite == "" ||
-	   requestBody.status == undefined || requestBody.status == null || requestBody.status == "" ){
-	   res.send("Apenas descrição pode ser vazio!")
-	}
 	try {
+		if(requestBody.numero_quarto==undefined || requestBody.numero_quarto==null || requestBody.numero_quarto=="" ||
+		requestBody.capacidade ==undefined || requestBody.capacidade ==null || requestBody.capacidade =="" ||
+		requestBody.preco_noite == undefined || requestBody.preco_noite == null || requestBody.preco_noite == "" ||
+		requestBody.status == undefined || requestBody.status == null || requestBody.status == "" ){
+		res.send("Apenas descrição pode ser vazio!")
+	 	}	
+
 		quartoData = req.body;
 		novoQuarto = await quartoService.createCliente(quartoData);
 		res.json(novoQuarto);
@@ -70,14 +70,14 @@ async function deleteQuarto(req, res) {
 async function updateQuarto(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoQuarto(req)
-    
-	if(requestBody.numero_quarto==undefined || requestBody.numero_quarto==null || requestBody.numero_quarto=="" ||
+	try {
+		if(requestBody.numero_quarto==undefined || requestBody.numero_quarto==null || requestBody.numero_quarto=="" ||
 	   requestBody.capacidade ==undefined || requestBody.capacidade ==null || requestBody.capacidade =="" ||
 	   requestBody.preco_noite == undefined || requestBody.preco_noite == null || requestBody.preco_noite == "" ||
 	   requestBody.status == undefined || requestBody.status == null || requestBody.status == "" ){
 	   res.send("Apenas descrição pode ser vazio!")
-	}
-	try {
+		}
+
 		quartoId = parseInt(req.params.id_quarto);
 		atualizaData = req.body;
 		atualizaQuarto = await quartoService.updateCliente(quartoId, atualizaData);

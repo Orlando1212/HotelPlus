@@ -40,7 +40,7 @@ async function createQuarto(quarto) {
 async function deleteQuarto(id) {
 	console.log("delete cliente")
 	try{
-		resposta = await pool.query(queryDeleteQuarto, [id.params.id_quarto]);
+		resposta = await pool.query(queryDeleteQuarto, [id]);
 		console.log(resposta.rows);
 		return resposta.rows;
 	} catch(err){
@@ -51,7 +51,7 @@ async function deleteQuarto(id) {
 async function updateQuarto(id,quarto) {
 		try{
 			resposta = await pool.query(queryUpdateQuarto, 
-				[quarto.numero_quarto, quarto.capacidade, quarto.preco_noite, quarto.status, quarto.descricao, id.params.id_quarto]
+				[quarto.numero_quarto, quarto.capacidade, quarto.preco_noite, quarto.status, quarto.descricao, id]
 			);
 			console.log(resposta.rows);
 			return resposta.rows;
