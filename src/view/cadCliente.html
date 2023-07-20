@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/cadCliente.css">
+    <script type="text/javascript" src ="./scripts/cadCliente.js" ></script>
     <title>Cadastrar Cliente</title>
 </head>
 <body>
@@ -12,13 +13,13 @@
       <div class="Card2">
         <h2 class="Titulo">Cadastrar Cliente</h2>
 
-        <form class="Formulario" action="http://localhost:3000/cliente"  method="post">
+        <form class="Formulario" id="cadastroClienteForm">
 
           <div>
             <p>Primeiro Nome</p>
             <div class="Input-Container">
               <label for="primeiro_nome"></label><br>
-              <input class="Input" type="text" id="primeiro_nome"   name="primeiro_nome" placeholder="Nome"><br><br>
+              <input class="Input" type="text" id="primeiroNome" placeholder="Nome"><br><br>
             </div>
           </div>
 
@@ -26,7 +27,7 @@
             <p>Sobrenome</p>
             <div class="Input-Container">
               <label for="ultimo_nome"></label><br>
-              <input class="Input" type="text" id="ultimo_nome"   name="ultimo_nome" placeholder="Sobrenome"><br><br>
+              <input class="Input" type="text" id="ultimoNome" placeholder="Sobrenome"><br><br>
             </div>
           </div>
 
@@ -34,7 +35,7 @@
             <p>CPF</p>
             <div class="Input-Container">
               <label for="cpf"></label><br>
-              <input class="Input" type="number" id="cpf" name="cpf" placeholder="000.000.000-00"><br><br>
+              <input class="Input" type="number" id="cpfId" placeholder="000.000.000-00"><br><br>
           </div>
         </div>
 
@@ -42,7 +43,7 @@
           <p>Celular</p>
           <div class="Input-Container">
             <label for="ddd_telefone"></label><br>
-            <input class="Input" type="number" id="ddd_telefone"    name="ddd_telefone" placeholder="(35) 9 0000-0000"><br><br>
+            <input class="Input" type="number" id="dddTelefone" placeholder="(35) 9 0000-0000"><br><br>
           </div>
         </div>
 
@@ -50,7 +51,7 @@
           <p>Data de Nascimento</p>
           <div class="Input-Container">
             <label for="data_nasc"></label><br>
-            <input class="Input" type="date" id="data_nasc" name="data_nasc"><br><br>
+            <input class="Input" type="date" id="dataNasc"><br><br>
           </div>
         </div>
 
@@ -58,21 +59,22 @@
           <p>E-mail</p>
           <div class="Input-Container">
             <label for="email"></label><br>
-            <input class="Input" type="email" id="email" name="email" placeholder="seuemail@mail.com"><br><br>
+            <input class="Input" type="email" id="emailId" placeholder="seuemail@mail.com"><br><br>
           </div>
           </div>
 
           <div class="Botoes-Inferiores">
           <div class="Caixa-Botao-Cancelar">
             
-            <a class="Botao-Cancelar" href="./loginUser.html">CANCELAR</a>
+            <a class="Botao-Cancelar" href="./telaPrincipal.html">CANCELAR</a>
           </div>
           <div class="Caixa-Botao-Cadastrar">
-            <input class="Botao-Cadastrar" type="submit" value="CADASTRAR">
+            <button class="Botao-Cadastrar" onclick="cadastraCliente()" type="submit">CADASTRAR</button>
           </div>
-          <div class="Caixa-Botao-Limpar">
-            <img class="img-Limpar" src="./utils/img/data-cleaning.png" alt="">    
-            <input class="Botao-Limpar" type="reset" value="LIMPAR CAMPOS">
+          <div class="Caixa-Botao-Limpar">   
+            <button class="Botao-Limpar" type="reset">
+              <img class="img-Limpar" src="./utils/img/data-cleaning.png" alt=""> 
+            </button>
           </div>  
         </div>
 
