@@ -14,21 +14,22 @@ function isPasswordValid(senha) {
 //========= Login ==============
 async function Login(email,senha) {
 
-  if (!isEmailValid(email) || !isPasswordValid(senha)) {
-    throw new Error('Email ou senha inválidos.');
+  if (!isEmailValid(email)) {
+    return alert('Email inválido.');
   }
-    const user = await loginRepositories.Login(email,senha);
+  if(!isPasswordValid(senha)){
+    return alert('Senha inválida,digite uma senha com pelo menos 6 caracteres.');
+  }
+    var user = await loginRepositories.Login(email,senha);
     if (!user) {
-      throw new Error('Usuário não encontrado.');
+      return {message: 'Usuario não Existe.'};
     }
-    /*
-    console.log(user.senha);
-    consolelog(senha);
-    const match = await bcrypt.compare(senha, user.senha);
+
+    const match = await bcrypt.compare(senha, user[0].senha);
     if (!match) {
-      throw new Error('Senha incorreta.');
+      return{message: 'Senha incorreta.'};
     }
-    */
+
     return { message: 'Login bem-sucedido!' };
 }
 

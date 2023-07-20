@@ -32,10 +32,6 @@ app.use("/quarto",quartoRouter)
 //endpoints para login
 app.use("/login",loginRouter)
 
-app.get("/criar/cliente", (req, res)=>{
-  res.sendFile(__dirname + "cadCliente.html")
-})
-
 app.get("/", (req, res)=>{
   res.sendFile(__dirname + "/view/loginUser.html")
 })

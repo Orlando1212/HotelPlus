@@ -5,7 +5,7 @@ function LoginAutenticacao(){
     const password = document.getElementById('senha');
 
     if (username.value == "" || password.value == "") {
-        alert("Ambos os campos estão vazios!");
+        return alert("Ambos os campos estão vazios!");
       }
       const email = username.value;
       const senha = password.value;

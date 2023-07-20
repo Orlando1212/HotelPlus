@@ -1,6 +1,5 @@
 import conectar from "../database/db.js";
-import {queryCreateCliente,queryDeleteCliente,queryGetAllCliente,queryUpdateCliente,queryGetCliente,
-idClienteString,ConstantesDeRequisicaoCliente,} from '../properties/cliente_properties.js'
+import {queryCreateCliente,queryDeleteCliente,queryGetAllCliente,queryUpdateCliente,queryGetCliente} from '../properties/cliente_properties.js'
 
 const pool = conectar();
 var resposta;
@@ -16,10 +15,8 @@ async function getAllClientes() {
 }
 
 async function getCliente(id) {
-	console.log(id);
 	try {
 		resposta = await pool.query(queryGetCliente, [id] );
-		console.log("aqui");
 		console.log(resposta.rows);
 		return resposta.rows;
 	} catch(err){
@@ -41,8 +38,6 @@ async function createCliente(cliente) {
 
 
 async function deleteCliente(id) {
-	console.log("delete cliente")
-	console.log(id);
 	try{
 		resposta = await pool.query(queryDeleteCliente, [id] );
 		console.log(resposta.rows)
@@ -53,7 +48,6 @@ async function deleteCliente(id) {
 }
 
 async function updateCliente(id,cliente) {
-		console.log(cliente);
 		try{
 			resposta = await pool.query(queryUpdateCliente, 
 			   [cliente.cpf, cliente.primeiro_nome, cliente.ultimo_nome, cliente.data_nascimento, cliente.email, cliente.ddd_telefone, id] 
