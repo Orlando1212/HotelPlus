@@ -13,7 +13,7 @@ var atualizaData;
 async function getAllClientes(req, res) {
 	try {
 		clientes = await clienteService.getAllClientes();
-		res.json(clientes);
+		res.status(200).json(clientes);
 	  } catch (err) {
 		res.status(500).json({ error: 'Erro ao obter a lista de clientes.' });
 	  }
@@ -26,7 +26,7 @@ async function getCliente(req, res) {
 		if (!cliente) {
 		  res.status(404).json({ message: 'Cliente não encontrado.' });
 		} else {
-		  res.json(cliente);
+		  res.status(200).json(cliente);
 		}
 	  } catch (err) {
 		res.status(500).json({ error: 'Erro ao buscar o cliente.' });
@@ -40,13 +40,12 @@ async function createCliente(req, res) {
 		if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
 	   requestBody.primeiro_nome ==undefined || requestBody.primeiro_nome ==null || requestBody.primeiro_nome =="" ||
 	   requestBody.ultimo_nome == undefined || requestBody.ultimo_nome == null || requestBody.ultimo_nome == "" ||
-	   requestBody.email == undefined || requestBody.email == null || requestBody.email == "" ){
-	   res.send(" CPF , nome e email não pode ser vazios!!!")
-		}
-		
-		clienteData = req.body;
+	   requestBody.email == undefined || requestBody.email == null || requestBody.email == ""){
+	   res.status(401).json({message: 'Alguns dos campos não foi preenchido.'})
+	   }
+		clienteData = requestBody;
 		novoCliente = await clienteService.createCliente(clienteData);
-		res.json(novoCliente);
+		res.status(200).json(novoCliente);
 	  } catch (err) {
 		res.status(500).json({ error: 'Erro ao criar o cliente.' });
 	  }
@@ -60,7 +59,7 @@ async function deleteCliente(req, res) {
 		if (!deletaCliente) {
 		  res.status(404).json({ message: 'Cliente não encontrado.' });
 		} else {
-		  res.json({ message: 'Cliente excluído com sucesso.' });
+		  res.status(200).json({ message: 'Cliente excluído com sucesso.' });
 		}
 	  } catch (err) {
 		res.status(500).json({ error: 'Erro ao excluir o cliente.' });
@@ -68,24 +67,16 @@ async function deleteCliente(req, res) {
 }
 
 async function updateCliente(req, res) {
-
-	const requestBody = ConstantesDeRequisicaoCliente(req)
 	
 	try {	
-		if(requestBody.cpf==undefined || requestBody.cpf==null || requestBody.cpf=="" ||
-	   requestBody.primeiro_nome ==undefined || requestBody.primeiro_nome ==null || requestBody.primeiro_nome =="" ||
-	   requestBody.ultimo_nome == undefined || requestBody.ultimo_nome == null || requestBody.ultimo_nome == "" ||
-	   requestBody.email == undefined || requestBody.email == null || requestBody.email == "" ){
-	   res.send(" CPF , nome e email não pode ser vazios!!!")		
-		}
-
 		clienteId = parseInt(req.params.id_cliente);
-		atualizaData = requestBody;
+		atualizaData = req.body;
+		console.log(atualizaData);
 		atualizaCliente = await clienteService.updateCliente(clienteId, atualizaData);
 		if (!atualizaCliente) {
 		  res.status(404).json({ message: 'Cliente não encontrado.' });
 		} else {
-		  res.json(atualizaCliente);
+		  res.status(200).json(atualizaCliente);
 		}
 	  } catch (err) {
 		res.status(500).json({ error: 'Erro ao atualizar o cliente.' });

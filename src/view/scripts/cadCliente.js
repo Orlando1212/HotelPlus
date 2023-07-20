@@ -8,10 +8,10 @@ function cadastraCliente(){
     const dddTelefone = document.getElementById('dddTelefone');
     const dataNasc = document.getElementById('dataNasc');
     const emailId = document.getElementById('emailId');
-    
-        //Validação dos campos
-    if (primeiroNome.value == "" || ultimoNome.value == "" || cpfId.value == "" || dddTelefone.value == "" || dataNasc.value == "" || emailId.value){
-        alert("Alguns ou nenhum dos campos está preenchido.");
+
+     //Validação dos campos
+     if (primeiroNome.value == "" || ultimoNome.value == "" || cpfId.value == "" || dddTelefone.value == "" || dataNasc.value == "" || emailId.value ==""){
+        return alert("Alguns ou nenhum dos campos está preenchido.");
     }
     
     const primeiro_nome = primeiroNome.value;
@@ -20,7 +20,8 @@ function cadastraCliente(){
     const ddd_telefone = dddTelefone.value;
     const data_nasc = dataNasc.value;
     const email = emailId.value;
-
+    
+    
     // Envia os dados para o servidor usando a função fetch.
     fetch('http://localhost:3000/cliente', {
         method: 'POST',
@@ -30,23 +31,23 @@ function cadastraCliente(){
         body: JSON.stringify({cpf,primeiro_nome,ultimo_nome,data_nasc,ddd_telefone,email})
     })
     .then(response => {
-        if (response.ok) {
+        if (response.status == 200) {
             // Login bem-sucedido.
-            alert('Login realizado com sucesso!');
+            return alert('Cliente Cadastrado com Sucesso');
             // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
         }
         else if(response.status == 401){
             // Login falhou.
-           alert('Login falhou. Verifique suas credenciais.');
+           return alert('Login falhou. Verifique suas credenciais.');
         }
         else {
             // Falha na Chamada ao Banco de Dados.
-            alert('Login falhou. Verifique suas credenciais.');
+            return alert('Login falhou. Verifique suas credenciais.');
         }
     })
     .catch(error => {
         // Ocorreu um erro ao enviar a solicitação.
-        alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
+        return alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
     });
     });
 }
