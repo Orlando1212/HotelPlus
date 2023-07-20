@@ -56,7 +56,7 @@ async function updateCliente(id,cliente) {
 		console.log(cliente);
 		try{
 			resposta = await pool.query(queryUpdateCliente, 
-			   [cliente.cpf, cliente.primeiro_nome, cliente.data_nascimento, cliente.email, cliente.ddd_telefone, id] 
+			   [cliente.cpf, cliente.primeiro_nome, cliente.ultimo_nome, cliente.data_nascimento, cliente.email, cliente.ddd_telefone, id] 
 			);
 			console.log(resposta.rows);
 			return resposta.rows;

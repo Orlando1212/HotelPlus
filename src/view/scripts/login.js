@@ -1,16 +1,14 @@
-
 function LoginAutenticacao(){
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
+    document.getElementById("loginform").addEventListener("submit", function(event) {
     event.preventDefault(); //
-    console.log('entrou aqui');
-    const username = document.getElementById('email').value;
-    const password = document.getElementById('senha').value;
+    const username = document.getElementById('email');
+    const password = document.getElementById('senha');
 
-    // Dados do usuário a serem enviados para o servidor.
-    const userData = {
-        email: username,
-        senha: password
-    };
+    if (username.value == "" || password.value == "") {
+        alert("Ambos os campos estão vazios!");
+      }
+      const email = username.value;
+      const senha = password.value;
 
     // Envia os dados para o servidor usando a função fetch.
     fetch('http://localhost:3000/login', {
@@ -18,16 +16,22 @@ function LoginAutenticacao(){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userData)
+        body: JSON.stringify({email,senha})
     })
     .then(response => {
-        if (response.ok) {
+        if (response.status === 200) {
             // Login bem-sucedido.
             alert('Login realizado com sucesso!');
-            // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
-        } else {
-            // Login falhou.
+            //redireciona para tela principal
+            window.location.replace('telaPrincipal.html');
+        }
+        else if(response.status == 401){
+             // Login falhou.
             alert('Login falhou. Verifique suas credenciais.');
+        }
+        else {
+            // Falha na Chamada ao Banco de Dados.
+            alert('Algum erro no sistema. Tente novamente em alguns minutos.');
         }
     })
     .catch(error => {
