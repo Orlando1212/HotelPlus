@@ -11,26 +11,30 @@ async function getReserva(id) {
 }
 
 async function deleteReserva(id) {
+
+	var consultaReserva = await reservaRepositories.getReserva(id);
+
+	if(consultaReserva.length == 0){
+		return ({message: 'Reserva não existe.',
+				status: 404})
+	}
+
 	return (await reservaRepositories.deleteReserva(id))
 }
 
-async function createReserva( reserva ) {
-	var consultaprod = await getReserva(reserva.id);
-	
-	if (consultaprod.length>0){
-		return "Erro, Reserva já existe"
-	}
-	
-	return (await reservaRepositories.createReserva( reserva ))
+async function createReserva(reserva) {
+
+	return (await reservaRepositories.createReserva(reserva))
 }
 
 async function updateReserva(id,reserva) {
-	var consultaprod = await getReserva(id);
-	
-	if (consultaprod.length==0){
-		return "Erro!!! Reserva não existe."
+	var consultaReserva = await reservaRepositories.getReserva(id);
+
+	if(consultaReserva.length == 0){
+		return ({message: 'Reserva não existe.',
+				status: 404})
 	}
-	return (await reservaRepositories.updateReserva(id) )
+	return (await reservaRepositories.updateReserva(id,reserva))
 }
 
 export default{getAllReservas, getReserva, createReserva, 

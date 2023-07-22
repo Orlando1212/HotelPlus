@@ -2,7 +2,8 @@
 export const queryCreateQuarto = 'INSERT INTO quarto (numero_quarto, capacidade, preco_noite, status, descricao) ' +
 'VALUES ($1, $2, $3, $4, $5) ' +
 'RETURNING *'
-export const queryUpdateQuarto = 'UPDATE quarto SET numero_quarto = $1, capacidade = $2, preco_noite = $3, status = $4, email = $5)'
+export const queryUpdateQuarto = 'UPDATE quarto SET numero_quarto = $1, capacidade = $2, preco_noite = $3, status = $4, email = $5\
+WHERE id_quarto =$6 returning *'
 export const queryDeleteQuarto = 'DELETE FROM quarto WHERE id_quarto = $1'
 export const queryGetQuarto = 'SELECT id_quarto FROM quarto WHERE id_quarto =$1'
 export const queryGetAllQuarto = 'SELECT * FROM quarto;'

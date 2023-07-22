@@ -1,14 +1,13 @@
 import express from "express"
-import clienteController from "../controllers/cliente_controller.js"
-
+import quartoController from "../controllers/quarto_controller.js";
 const router = express.Router()
 
 // endpoints para cliente
-router.post('/', clienteController.createCliente )
-router.get('/', clienteController.getAllClientes )
-router.get('/:id_quarto', clienteController.getCliente )
-router.delete('/:id_quarto', clienteController.deleteCliente )
-router.put('/:id_quarto', clienteController.updateCliente )
+router.post('/', quartoController.createQuarto)
+router.get('/', quartoController.getAllQuartos)
+router.get('/:id_quarto', quartoController.getQuarto)
+router.delete('/:id_quarto', quartoController.deleteQuarto)
+router.put('/:id_quarto', quartoController.updateQuarto)
 
 export default router;
 
