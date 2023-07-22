@@ -11,26 +11,30 @@ async function getQuarto(id) {
 }
 
 async function deleteQuarto(id) {
+	var consultaQuarto = await quartoRepositories.getQuarto(id);
+
+	if(consultaQuarto.length == 0){
+		return ({message: 'Cliente não existe.',
+				status: 404})
+	}
+
 	return (await quartoRepositories.deleteQuarto(id) )
 }
 
 async function createQuarto(quarto) {
-	var consultaprod = await getQuarto(quarto.id);
-	
-	if (consultaprod.length>0){
-		return "Erro, Quarto já existe"
-	}
 	
 	return (await quartoRepositories.createQuarto(quarto))
 }
 
 async function updateQuarto(id,quarto) {
-	var consultaprod = await getQuarto(id);
-	
-	if (consultaprod.length==0){
-		return "Erro!!! Quarto não existe."
+	var consultaQuarto = await quartoRepositories.getQuarto(id);
+
+	if(consultaQuarto.length == 0){
+		return ({message: 'Cliente não existe.',
+				status: 404})
 	}
-	return (await quartoRepositories.updateQuarto(id) )
+
+	return (await quartoRepositories.updateQuarto(id,quarto) )
 }
 
 export default{getAllQuartos, getQuarto, createQuarto, 

@@ -16,7 +16,7 @@ async function getAllQuartos() {
 
 async function getQuarto(id) {	
 	try {
-		resposta = await pool.query(queryGetQuarto, [id.params.id_quarto]);
+		resposta = await pool.query(queryGetQuarto, [id]);
 		console.log(resposta.rows);
 		return resposta.rows;
 	} catch(err){

@@ -1,5 +1,5 @@
-import reservaService from '../services/Reserva_services.js';
-import { ConstantesDeRequisicaoReserva } from '../properties/Reserva_properties.js';
+import reservaService from '../services/reserva_services.js';
+import { ConstantesDeRequisicaoReserva } from '../properties/reserva_properties.js';
 
 var reservaData;
 var reservas;
@@ -10,12 +10,12 @@ var deletaReserva;
 var atualizaReserva;
 var atualizaData;
 
-async function getAllReservas() {
+async function getAllReservas(req,res) {
 	try {
-		reservas = await reservaService.getAllClientes();
-		res.json(reservas);
+		reservas = await reservaService.getAllReservas();
+		res.status(200).json(reservas);
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao obter a lista de clientes.' });
+		res.status(500).json({ error: 'Erro ao obter a lista de Reservas.' });
 	  }
 }
 
@@ -24,12 +24,12 @@ async function getReserva(req, res) {
 		reservaId = parseInt(req.params.id_reserva);
 		reserva = await reservaService.getReserva(reservaId);
 		if (!reserva) {
-		  res.status(404).json({ message: 'Reserva não encontrado.' });
+		  res.status(404).json({ message: 'Reserva não encontrada.' });
 		} else {
-		  res.json(reserva);
+		  res.status(200).json(reserva);
 		}
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao buscar o Reserva.' });
+		res.status(500).json({ error: 'Erro ao buscar a Reserva.' });
 	  }
 }
 
@@ -41,14 +41,14 @@ async function createReserva(req, res) {
 	   requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
 	   requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
 	   requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
-	   res.send("Apenas descrição pode ser vazio!")
+	   res.status(401)("Alguns dos campos está vazio!")
 		}
 
-		reservaData = req.body;
-		novoReserva = await reservaService.createCliente(reservaData);
-		res.json(novoReserva);
+		reservaData = requestBody;
+		novoReserva = await reservaService.createReserva(reservaData);
+		res.status(200).json(novoReserva);
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao criar o cliente.' });
+		res.status(500).json({ error: 'Erro ao criar a Reserva.' });
 	  }
 	}
 
@@ -56,39 +56,30 @@ async function createReserva(req, res) {
 async function deleteReserva(req, res) {
 	try {
 		reservaId = parseInt(req.params.id_reserva);
-		deletaReserva = await reservaService.deleteCliente(reservaId);
+		deletaReserva = await reservaService.deleteReserva(reservaId);
 		if (!deletaReserva) {
-		  res.status(404).json({ message: 'Reserva não encontrado.' });
+		  res.status(404).json({ message: 'Reserva não encontrada.' });
 		} else {
-		  res.json({ message: 'Reserva excluído com sucesso.' });
+		  res.status(200).json({ message: 'Reserva excluído com sucesso.' });
 		}
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao excluir o Reserva.' });
+		res.status(500).json({ error: 'Erro ao excluir a Reserva.' });
 	  }
 }
 
 async function updateReserva(req, res) {
 
-	const requestBody = ConstantesDeRequisicaoReserva(req)
-
 	try {
-		if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
-		requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
-		requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
-		requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
-		res.send("Apenas descrição pode ser vazio!")
-		}
-
 		reservaId = parseInt(req.params.id_reserva);
 		atualizaData = req.body;
-		atualizaReserva = await reservaService.updateCliente(reservaId, atualizaData);
+		atualizaReserva = await reservaService.updateReserva(reservaId, atualizaData);
 		if (!atualizaReserva) {
-		  res.status(404).json({ message: 'Reserva não encontrado.' });
+		  res.status(404).json({ message: 'Reserva não encontrada.'});
 		} else {
-		  res.json(atualizaReserva);
+		  res.status(200).json(atualizaReserva);
 		}
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao atualizar o Reserva.' });
+		res.status(500).json({ error: 'Erro ao atualizar a Reserva.'});
 	  }
 }
 
