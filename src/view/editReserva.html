@@ -1,0 +1,88 @@
+<!-- Tela 7.1 Editar reserva, inserir dados -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/reservarQuartoII.css">
+    <script type="text/javascript" src="./scripts/cadQuarto.js"></script>
+    <title>Editar Reserva</title>
+</head>
+<body>
+  <div class="Background-Foto">
+    <div class="Card1">
+      <div class="Card2">
+        <h2 class="Titulo">Editar Reserva</h2>
+
+        <form class="Formulario" id ="cadastraQuartoForm" method="post">
+
+        <div class="Containers-Superior">
+            <div class="Container-Input-Texto">
+                <p>Suíte</p>
+                <div class="Input-ContainerI">
+                <label for="suite"></label><br>
+                <input class="InputI" type="number" id="numeroQuarto"  placeholder="000"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>CPF do Cliente</p>
+                <div class="Input-ContainerII">
+                <label for="capacidade"></label><br>
+                <input class="InputII" type="number" id="capacidade" placeholder="000.000.000-00"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>Nº de Pessoas</p>
+                <div class="Input-ContainerIII">
+                    <label for="valorDia"></label><br>
+                    <input class="InputIII" type="number" id="valorDia" placeholder="0"><br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="Containers-Superior">
+            <div class="Container-Input-Texto">
+                <p>Check-In</p>
+                <div class="Input-ContainerIII">
+                <label for="suite"></label><br>
+                <input class="InputIII" type="number" id="numeroQuarto"  placeholder="00/00/0000"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>Check-Out</p>
+                <div class="Input-ContainerIII">
+                <label for="capacidade"></label><br>
+                <input class="InputIII" type="number" id="capacidade" placeholder="00/00/0000"><br><br>
+                </div>
+            </div>
+
+            <div class="Container-Input-Texto">
+                <p>Valor</p>
+                <div class="Input-ContainerIII">
+                    <label for="valorDia"></label><br>
+                    <input class="InputIII" type="number" id="valorDia" placeholder="R$000,00"><br><br>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="Botoes-Inferiores">
+            <div class="Caixa-Botao-Cancelar">
+                <a class="Botao-Cancelar" href="./telaPrincipal.html">CANCELAR</a>
+            </div>
+            
+            <div class="Caixa-Botao-Cadastrar">
+                <button class="Botao-Cadastrar" onclick="cadastraQuarto()" type="submit" href="./confCadastroQuar.html">CADASTRAR</button>
+            </div> 
+        </div>
+
+        </form> 
+      </div>
+    </div>
+</div>
+</body>
+</html>
