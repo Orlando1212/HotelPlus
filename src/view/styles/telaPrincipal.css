@@ -18,19 +18,22 @@
 
 .Barra {
     width: 100vw;
-    height: 150px;
+    height: 125px;
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+}
 
+.TiLogo{
+    display: flex;
+    align-items: center;
 }
 
 .Logo {
-    width: 350px;
+    width: 100px;
     height: 100px;
     padding-left: 40px;
 
@@ -38,23 +41,33 @@
     margin-left: 0;
 }
 
+.Titulo {
+    padding-left: 10px;
+    font-size: 60px;
+    font-family: 'Varela Round';
+    font-weight: 400;
+    color: #85DE76;
+}
+
 .Sair {
+    margin-left: auto;
     padding-right: 40px;
+    align-items: center;
 }
 
 .SairBotao{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    
+    background-color: #ffffff;
+    border: none;
     display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
 }
 
 .SairIcon {
-    width: 60px;
-    height: 60px;
-
+    width: 50px;
+    height: 50px;
 }
 
 .SairTexto {
