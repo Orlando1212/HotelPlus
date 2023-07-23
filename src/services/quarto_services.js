@@ -14,7 +14,7 @@ async function deleteQuarto(id) {
 	var consultaQuarto = await quartoRepositories.getQuarto(id);
 
 	if(consultaQuarto.length == 0){
-		return ({message: 'Cliente não existe.',
+		return ({message: 'Quarto não existe.',
 				status: 404})
 	}
 
@@ -30,7 +30,7 @@ async function updateQuarto(id,quarto) {
 	var consultaQuarto = await quartoRepositories.getQuarto(id);
 
 	if(consultaQuarto.length == 0){
-		return ({message: 'Cliente não existe.',
+		return ({message: 'Quarto não existe.',
 				status: 404})
 	}
 

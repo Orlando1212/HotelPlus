@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/cadQuarto.css">
-    <script type="text/javascript" src="./scripts/cadQuarto.js"></script>
+    <script type="text/javascript" src="./scripts/editaQuarto.js"></script>
     <title>Editar Quarto</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
       <div class="Card2">
         <h2 class="Titulo">Editar Quarto</h2>
 
-        <form class="Formulario" id ="cadastraQuartoForm" method="post">
+        <form class="Formulario" id ="editaQuartoForm">
 
         <div class="Containers-Superior">
             <div class="Container-Input-Texto">
@@ -38,7 +38,7 @@
                 <p>Valor da diária</p>
                 <div class="Input-Container">
                     <label for="valorDia"></label><br>
-                    <input class="Input" type="number" id="valorDia" placeholder="50"><br><br>
+                    <input class="Input" type="number" id="precoNoite" placeholder="50"><br><br>
                 </div>
             </div>
         </div>
@@ -54,11 +54,11 @@
 
         <div class="Botoes-Inferiores">
             <div class="Caixa-Botao-Cancelar">
-                <a class="Botao-Cancelar" href="./loginUser.html">CANCELAR</a>
+                <a class="Botao-Cancelar" href="./acessaQuarto.html">CANCELAR</a>
             </div>
             
             <div class="Caixa-Botao-Cadastrar">
-                <button class="Botao-Cadastrar" onclick="cadastraQuarto()" type="submit" href="./confCadastroQuar.html">EDITAR</button>
+                <button class="Botao-Cadastrar" type="submit">EDITAR</button>
             </div> 
         </div>
 

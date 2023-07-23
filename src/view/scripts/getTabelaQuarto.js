@@ -1,8 +1,8 @@
 function preencherTabela() {
     var dataArray = [];
-    let id_cliente;
+    let id_quarto;
     try {
-        fetch('http://localhost:3000/cliente',{
+        fetch('http://localhost:3000/quarto',{
             method:'GET',
             headers: {
             'Content-Type': 'application/json',
@@ -10,43 +10,28 @@ function preencherTabela() {
         .then(response =>{
         return response.json();
     }).then(data => {
-        const tableBody = document.getElementById('tabelaCliente');
+        const tableBody = document.getElementById('tabelaQuarto');
         dataArray.push(...data);
 
         dataArray.map((item) => {
-            id_cliente = item.id_cliente;
+            id_quarto = item.id_quarto;
             console.log(item);
             const row = document.createElement('tr');
     
             const primeiroNomeCell = document.createElement('td');
-            primeiroNomeCell.textContent = item.primeiro_nome;
+            primeiroNomeCell.textContent = item.numero_quarto;
             row.appendChild(primeiroNomeCell);
     
             const ultimoNomeCell = document.createElement('td');
-            ultimoNomeCell.textContent = item.ultimo_nome;
+            ultimoNomeCell.textContent = item.capacidade;
             row.appendChild(ultimoNomeCell);
 
-            const cpfCell = document.createElement('td');
-            if(item.cpf == null){
-                item.cpf = '';
-            }
-            const regexCpf = /^(\d{3})(\d{3})(\d{3})(\d{2})$/;
-            cpfFormated = item.cpf.replace(regexCpf,"$1.$2.$3-$4")
-            cpfCell.textContent = cpfFormated;
-            row.appendChild(cpfCell);
-
             const telefoneCell = document.createElement('td');
-            telefoneCell.textContent = item.ddd_telefone;
+            telefoneCell.textContent = item.preco_noite;
             row.appendChild(telefoneCell);
 
-            const nascimentoCell = document.createElement('td');
-            formatedDate = new Date(item.data_nasc);
-            formatedDate = String(formatedDate.getDate()).padStart(2, '0') + "/" + String(formatedDate.getMonth() + 1).padStart(2, '0') + "/" + formatedDate.getFullYear();
-            nascimentoCell.textContent = formatedDate;
-            row.appendChild(nascimentoCell);
-
             const emailCell = document.createElement('td');
-            emailCell.textContent = item.email;
+            emailCell.textContent = item.descricao;
             row.appendChild(emailCell);
             
     
@@ -65,18 +50,18 @@ function preencherTabela() {
             row.appendChild(actionsCell);
             tableBody.appendChild(row);
 
-            (function (id_cliente) {
+            (function (id_quarto) {
             function handleDeleteButtonClick() {
-                console.log(id_cliente);
-                window.location.href = `confExclusao.html?id_cliente=${id_cliente}`;
+                console.log(id_quarto);
+                window.location.href = `confExclusaoQuar.html?id_quarto=${id_quarto}`;
             } 
               // Função para lidar com o clique no botão "Excluir"
             function handleEditButtonClick() {
-                window.location.href = `editCliente.html?id_cliente=${id_cliente}`;
+                window.location.href = `editQuarto.html?id_quarto=${id_quarto}`;
               }     
                 editButton.addEventListener('click',handleEditButtonClick);
                 deleteButton.addEventListener('click',handleDeleteButtonClick);
-            })(id_cliente);
+            })(id_quarto);
         });
     })
     } catch (error) {
