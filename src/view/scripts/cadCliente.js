@@ -1,54 +1,27 @@
-function cadastraCliente(){
-    document.getElementById("cadastroClienteForm").addEventListener("submit", function(event) {
-    event.preventDefault(); //
-    console.log('entrou aqui');
-    const primeiroNome = document.getElementById('primeiroNome');
-    const ultimoNome = document.getElementById('ultimoNome');
-    const cpfId = document.getElementById('cpfId');
-    const dddTelefone = document.getElementById('dddTelefone');
-    const dataNasc = document.getElementById('dataNasc');
-    const emailId = document.getElementById('emailId');
+document.addEventListener('DOMContentLoaded', function() {
+    // Variáveis para armazenar temporariamente os dados do formulário
+    let primeiroNomeValue = "";
+    let ultimoNomeValue = "";
+    let cpfIdValue = "";
+    let dddTelefoneValue = "";
+    let dataNascValue = "";
+    let emailIdValue = "";
 
-     //Validação dos campos
-     if (primeiroNome.value == "" || ultimoNome.value == "" || cpfId.value == "" || dddTelefone.value == "" || dataNasc.value == "" || emailId.value ==""){
-        return alert("Alguns ou nenhum dos campos está preenchido.");
+    // Função para capturar os dados do formulário antes do envio
+    function capturarDadosFormulario(event) {
+        event.preventDefault();
+        console.log('Dados do formulário capturados.');
+        primeiroNomeValue = document.getElementById('primeiroNome').value;
+        ultimoNomeValue = document.getElementById('ultimoNome').value;
+        cpfIdValue = document.getElementById('cpfId').value;
+        dddTelefoneValue = document.getElementById('dddTelefone').value;
+        dataNascValue = document.getElementById('dataNasc').value;
+        emailIdValue = document.getElementById('emailId').value;
+
+        // Redirecionar para a página CONFCADASTRO passando os dados como parâmetros de consulta
+        window.location.href = `./confCadastro.html?primeiroNome=${encodeURIComponent(primeiroNomeValue)}&ultimoNome=${encodeURIComponent(ultimoNomeValue)}&cpfId=${encodeURIComponent(cpfIdValue)}&dddTelefone=${encodeURIComponent(dddTelefoneValue)}&dataNasc=${encodeURIComponent(dataNascValue)}&emailId=${encodeURIComponent(emailIdValue)}`;
     }
-    
-    const primeiro_nome = primeiroNome.value;
-    const ultimo_nome = ultimoNome.value;
-    const cpf = cpfId.value;
-    const ddd_telefone = dddTelefone.value;
-    const data_nasc = dataNasc.value;
-    const email = emailId.value;
-    
-    
-    // Envia os dados para o servidor usando a função fetch.
-    fetch('http://localhost:3000/cliente', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({cpf,primeiro_nome,ultimo_nome,data_nasc,ddd_telefone,email})
-    })
-    .then(response => {
-        if (response.status == 200) {
-            // Login bem-sucedido.
-            return alert('Cliente Cadastrado com Sucesso');
-            // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
-        }
-        else if(response.status == 401){
-            // Login falhou.
-           return alert('Login falhou. Verifique suas credenciais.');
-        }
-        else {
-            // Falha na Chamada ao Banco de Dados.
-            return alert('Login falhou. Verifique suas credenciais.');
-        }
-    })
-    .catch(error => {
-        // Ocorreu um erro ao enviar a solicitação.
-        return alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
-    });
-    });
-}
 
+    // Adicionar o evento de captura de dados ao formulário
+    document.getElementById("cadastroClienteForm").addEventListener("submit", capturarDadosFormulario);
+});
