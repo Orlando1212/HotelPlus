@@ -10,12 +10,12 @@ var deletaQuarto;
 var atualizaQuarto;
 var atualizaData;
 
-async function getAllQuartos() {
+async function getAllQuartos(req,res) {
 	try {
 		quartos = await quartoService.getAllQuartos();
 		res.status(200).json(quartos);
 	  } catch (err) {
-		res.status(500).json({ error: 'Erro ao obter a lista de clientes.' });
+		res.status(500).json({ error: 'Erro ao obter a lista de Quartos.' });
 	  }
 }
 

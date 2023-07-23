@@ -33,6 +33,16 @@ async function getReserva(req, res) {
 	  }
 }
 
+async function reservaEntreDatas(req,res){
+	  const { dataInicio, dataFim } = req.params;  
+	  try {
+		const reservas = reservaService.reservaEntreDatas(dataInicio, dataFim);
+		res.status(200).json(reservas);
+	  } catch (error) {
+		res.status(500).json({ message: "Erro ao buscar reservas entre as datas." });
+	  }
+	};
+
 async function createReserva(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoReserva(req)
@@ -84,4 +94,4 @@ async function updateReserva(req, res) {
 }
 
 export default{getAllReservas, getReserva, createReserva, 
-               deleteReserva, updateReserva}
+               deleteReserva, updateReserva,reservaEntreDatas}

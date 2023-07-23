@@ -27,6 +27,11 @@ async function createReserva(reserva) {
 	return (await reservaRepositories.createReserva(reserva))
 }
 
+async function reservaEntreDatas(inicio,fim) {
+
+	return (await reservaRepositories.createReserva(inicio,fim))
+}
+
 async function updateReserva(id,reserva) {
 	var consultaReserva = await reservaRepositories.getReserva(id);
 
@@ -38,5 +43,5 @@ async function updateReserva(id,reserva) {
 }
 
 export default{getAllReservas, getReserva, createReserva, 
-               deleteReserva, updateReserva}
+               deleteReserva, updateReserva,reservaEntreDatas}
 
