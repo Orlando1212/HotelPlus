@@ -1,0 +1,88 @@
+<!-- Tela 6.1 Editar cliente, inserir dados -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/cadCliente.css">
+    <script type="text/javascript" src ="./scripts/cadCliente.js" ></script>
+    <title>Editar Cliente</title>
+</head>
+<body>
+  <div class="Background-Foto">
+    <div class="Card1">
+      <div class="Card2">
+        <h2 class="Titulo">Editar Cliente</h2>
+
+        <form class="Formulario" id="cadastroClienteForm">
+
+          <div>
+            <p>Primeiro Nome</p>
+            <div class="Input-Container">
+              <label for="primeiro_nome"></label><br>
+              <input class="Input" type="text" id="primeiroNome" placeholder="Nome"><br><br>
+            </div>
+          </div>
+
+          <div>
+            <p>Sobrenome</p>
+            <div class="Input-Container">
+              <label for="ultimo_nome"></label><br>
+              <input class="Input" type="text" id="ultimoNome" placeholder="Sobrenome"><br><br>
+            </div>
+          </div>
+
+          <div>
+            <p>CPF</p>
+            <div class="Input-Container">
+              <label for="cpf"></label><br>
+              <input class="Input" type="number" id="cpfId" placeholder="000.000.000-00"><br><br>
+          </div>
+        </div>
+
+        <div>
+          <p>Celular</p>
+          <div class="Input-Container">
+            <label for="ddd_telefone"></label><br>
+            <input class="Input" type="number" id="dddTelefone" placeholder="(35) 9 0000-0000"><br><br>
+          </div>
+        </div>
+
+        <div>
+          <p>Data de Nascimento</p>
+          <div class="Input-Container">
+            <label for="data_nasc"></label><br>
+            <input class="Input" type="date" id="dataNasc"><br><br>
+          </div>
+        </div>
+
+          <div>
+          <p>E-mail</p>
+          <div class="Input-Container">
+            <label for="email"></label><br>
+            <input class="Input" type="email" id="emailId" placeholder="seuemail@mail.com"><br><br>
+          </div>
+          </div>
+
+          <div class="Botoes-Inferiores">
+          <div class="Caixa-Botao-Cancelar">
+            
+            <a class="Botao-Cancelar" href="./telaPrincipal.html">CANCELAR</a>
+          </div>
+          <div class="Caixa-Botao-Cadastrar">
+            <button class="Botao-Cadastrar"type="submit">EDITAR</button>
+          </div>
+          <div class="Caixa-Botao-Limpar">   
+            <button class="Botao-Limpar" type="reset">
+              <img class="img-Limpar" src="./utils/img/data-cleaning.png" alt=""> 
+            </button>
+          </div>  
+        </div>
+
+        </form> 
+      </div>
+    </div>
+</div>
+</body>
+</html>

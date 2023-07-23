@@ -1,0 +1,49 @@
+<!-- Tela 4.1 Escolher quarto para reserva -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/acessaClientes.css">
+
+    <title>Quartos Disponíveis</title>
+
+    <script type="text/javascript" src="./scripts/getTabelaCliente.js">
+    </script>
+</head>
+
+<body>
+    <div class = "Background-Foto">
+        <div class = "Background-tabela">
+            <div class = "Borda-interna">
+
+                <div class = "Cabecalho">
+                    <h1 class = "Titulo">Quartos Disponíveis</h1>
+                    <button class = "Botao" onclick="location.href='telaPrincipal.html'"> 
+                        <img class="Logo" src="./utils/img/excluir.png" alt="">
+                    </button>
+                </div>
+
+                <table class>
+                    <thead>
+                        <tr class = "Linhas">
+                            <th>Suíte</th>
+                            <th>Capacidade</th>
+                            <th>Valor Diária</th>
+                            <th>Descrição</th>
+                            <th>Ações</th> <!-- Ações aqui vai ser apenas selecionar -->
+                            
+                        </tr>
+
+                    </thead>
+                    <tbody id="tabelaCliente">
+                        <!-- A tabela será preenchida dinamicamente pelo JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
