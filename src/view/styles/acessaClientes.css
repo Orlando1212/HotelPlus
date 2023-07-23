@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Background-Foto {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('../utils/img/Background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Background-tabela {
+    width: 1100px;
+    height: 650px;
+    background-color: white;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Borda-interna {
+    width: 1050px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #85DE76;
+}
+
+.Titulo {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 60px;
+    font-family: 'Varela Round';
+    font-weight: 400;
+    color: #85DE76;
+}
+
+.Cabecalho {
+    display: flex;
+}
+
+.Botao {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 725px;
+    background-color: #ffffff;
+    border: none;
+}
+
+.Logo {
+    width: 50px;
+    height: 50px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #ffffff;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+button {
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
