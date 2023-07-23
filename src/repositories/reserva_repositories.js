@@ -1,5 +1,5 @@
 import conectar from "../database/db.js";
-import {queryCreateReserva,queryDeleteReserva,queryGetAllReserva,queryUpdateReserva,queryGetReserva} from '../properties/reserva_properties.js'
+import {queryCreateReserva,queryDeleteReserva,queryGetAllReserva,queryUpdateReserva,queryGetReserva,queryGetDataReserva} from '../properties/reserva_properties.js'
 
 const pool = conectar();
 var resposta;
@@ -48,9 +48,19 @@ async function deleteReserva(id) {
 	}
 }
 
+async function reservaEntreDatas(inicio,fim) {
+	try{
+		resposta = await pool.query(queryGetDataReserva, [inicio,fim]);
+		console.log(resposta.rows);
+		return resposta.rows;
+	} catch(err){
+		console.log(err);
+	}
+}
+
 async function updateReserva(id,reserva) {
 		try{
-			resposta = await pool.query(queryCreateReserva, [reserva.check-in_date, reserva.check-out_date, reserva.qnt_pessoas,
+			resposta = await pool.query(queryUpdateReserva, [reserva.check-in_date, reserva.check-out_date, reserva.qnt_pessoas,
 			reserva.reserva_valor,id]
 			);
 			console.log(resposta.rows);
@@ -61,4 +71,4 @@ async function updateReserva(id,reserva) {
 }
 
 export default{getAllReservas, getReserva, createReserva, 
-               deleteReserva, updateReserva}
+               deleteReserva, updateReserva,reservaEntreDatas}

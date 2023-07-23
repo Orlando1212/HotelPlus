@@ -1,49 +1,25 @@
-function cadastraQuarto(){
-    document.getElementById("cadastraQuartoForm").addEventListener("submit", function(event) {
-    event.preventDefault(); //
-    console.log('entrou aqui');
-    const numeroQuarto = document.getElementById('numeroQuarto');
-    const capacidadeQnt= document.getElementById('capacidade');
-    const valorDia = document.getElementById('valorDia');
-    const descricaoDes = document.getElementById('descricao');
-    const status = false;
-     //Validação dos campos
-     if (numeroQuarto.value == "" || capacidadeQnt.value == "" || valorDia.value == "" || descricaoDes.value == ""){
-        return alert("Alguns ou nenhum dos campos está preenchido.");
-    }
-    
-    const numero_quarto = numeroQuarto.value;
-    const capacidade = capacidadeQnt.value;
-    const preco_noite = valorDia.value;
-    const descricao = descricaoDes.value;
-    
-    // Envia os dados para o servidor usando a função fetch.
-    fetch('http://localhost:3000/quarto', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({numero_quarto,capacidade,preco_noite,status,descricao})
-    })
-    .then(response => {
-        if (response.status == 200) {
-            // Login bem-sucedido.
-            return alert('Quarto Cadastrado com Sucesso');
-            // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
-        }
-        else if(response.status == 401){
-            // Quarto falhou.
-           return alert('Verifique se os dados estão inseridos corretamente.');
-        }
-        else {
-            // Falha na Chamada ao Banco de Dados.
-            return alert('Falha ao criar Quarto.');
-        }
-    })
-    .catch(error => {
-        // Ocorreu um erro ao enviar a solicitação.
-        return alert('Ocorreu um erro ao realizar o login. Tente novamente mais tarde.');
-    });
-    });
-}
+document.addEventListener('DOMContentLoaded', function() {
+    // Variáveis para armazenar temporariamente os dados do formulário
+    let numeroQuartoValue = "";
+    let capacidadeValue = "";
+    let precoNoiteValue = "";
+    let statusValue = false;
+    let descricaoValue = "";
 
+    // Função para capturar os dados do formulário antes do envio
+    function capturarDadosFormularioQuarto(event) {
+        event.preventDefault();
+        console.log('Dados do formulário capturados.');
+        numeroQuartoValue = document.getElementById('numeroQuarto').value;
+        capacidadeValue = document.getElementById('capacidade').value;
+        precoNoiteValue = document.getElementById('precoNoite').value;
+        descricaoValue = document.getElementById('descricao').value;
+        statusValue = statusValue;
+
+        // Redirecionar para a página CONFCADASTRO passando os dados como parâmetros de consulta
+        window.location.href = `./confCadastroQuar.html?numeroQuarto=${encodeURIComponent(numeroQuartoValue)}&capacidade=${encodeURIComponent(capacidadeValue)}&precoNoite=${encodeURIComponent(precoNoiteValue)}&descricao=${encodeURIComponent(descricaoValue)}`;
+    }
+
+    // Adicionar o evento de captura de dados ao formulário
+    document.getElementById("cadastroQuartoForm").addEventListener("submit", capturarDadosFormularioQuarto);
+});

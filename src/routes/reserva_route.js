@@ -9,6 +9,7 @@ router.get('/', reservaController.getAllReservas )
 router.get('/:id_reserva', reservaController.getReserva )
 router.delete('/:id_reserva', reservaController.deleteReserva )
 router.put('/:id_reserva', reservaController.updateReserva )
+router.get('/:dataInicio/:dataFim', reservaController.reservaEntreDatas);
 
 export default router;
 

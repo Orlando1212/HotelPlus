@@ -7,6 +7,7 @@ WHERE id_reserva =$5 returning *'
 export const queryDeleteReserva = 'DELETE FROM reserva WHERE id_reserva = $1'
 export const queryGetReserva = 'SELECT id_reserva FROM reserva WHERE id_reserva =$1'
 export const queryGetAllReserva = 'SELECT * FROM reserva;'
+export const queryGetDataReserva = 'SELECT * FROM sua_tabela WHERE check_in_date >= $1 AND check_out_date <= $2 ORDER BY numero_quarto;';
 
 //Request Body\\
 export function ConstantesDeRequisicaoReserva(req) {

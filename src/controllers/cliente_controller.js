@@ -32,7 +32,6 @@ async function getCliente(req, res) {
 		res.status(500).json({ error: 'Erro ao buscar o cliente.' });
 	  }
 }
-
 async function createCliente(req, res) {
 
 	const requestBody = ConstantesDeRequisicaoCliente(req)
