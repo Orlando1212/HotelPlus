@@ -39,19 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => {
                     if (response.status == 200) {
                         // Cadastro bem-sucedido.
-                        alert('Cliente Cadastrado com Sucesso');
-                        window.location.href="telaPrincipal.html"
-                        // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
+                        window.location.href="sucCadastro.html"
                     }
                     else if(response.status == 404){
-                        alert('Cliente já existe.')
                         window.location.href="errCadastroExis.html"
                     }
                     else {
                         // Falha no cadastro.
-
-                        alert('Falha ao cadastrar o cliente. Verifique os dados e tente novamente.');
-                        window.location.href="erroCadastroRes.html"
+                        window.location.href="errCadastroRes.html"
                     }
                 })
                 .catch(error => {

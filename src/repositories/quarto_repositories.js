@@ -20,7 +20,7 @@ async function getQuarto(id) {
 		console.log(resposta.rows);
 		return resposta.rows;
 	} catch(err){
-		console.log(err);
+		(err);
 	}
 }
 
@@ -41,7 +41,7 @@ async function deleteQuarto(id) {
 	console.log("delete cliente")
 	try{
 		resposta = await pool.query(queryDeleteQuarto, [id]);
-		console.log(resposta.rows);
+		(resposta.rows);
 		return resposta.rows;
 	} catch(err){
 		console.log(err);

@@ -1,49 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Variáveis para armazenar temporariamente os dados do formulário vindo do CADCLIENTE
-    let primeiroNomeValue = "";
-    let ultimoNomeValue = "";
-    let cpfIdValue = "";
-    let dddTelefoneValue = "";
-    let dataNascValue = "";
-    let emailIdValue = "";
-    let id_cliente = "";
+    let qntPessoas = "";
+    let reservaValor = "";
+    let check_in_dateValue = "";
+    let check_out_dateValue = "";
+    let cpfCliente = "";
+    let id_reserva = getQueryParameter('id_reserva')
 
     // Função para mostrar os dados do formulário e realizar o cadastro
     function editaCliente() {
         // Recupera os valores dos campos do formulário vindo do CADCLIENTE
-        primeiroNomeValue = getQueryParameter('primeiroNome');
-        ultimoNomeValue = getQueryParameter('ultimoNome');
-        cpfIdValue = getQueryParameter('cpfId');
-        dddTelefoneValue = getQueryParameter('dddTelefone');
-        dataNascValue = getQueryParameter('dataNasc');
-        emailIdValue = getQueryParameter('emailId');
-        id_cliente = getQueryParameter('id_cliente');
+        numeroquartoValue= getQueryParameter('numero_quarto');
+        qntPessoas = getQueryParameter('qnt_pessoas');
+        reservaValor= getQueryParameter('reserva_valor');
+        check_in_dateValue= getQueryParameter('check_in');
+        check_out_dateValue = getQueryParameter('check_out');
+        cpfCliente = getQueryParameter('cpf_cliente');
+        id_reserva = id_reserva;
 
-        dataNascValue = new Date(dataNascValue);
+        // Mostra os valores do formulário para o usuário antes de confirmar o cadastro
 
             // Envia os dados para o servidor usando a função fetch.
-            fetch(`http://localhost:3000/cliente/${id_cliente}`, {
+            fetch(`http://localhost:3000/reserva/${id_reserva}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    cpf: cpfIdValue,
-                    primeiro_nome: primeiroNomeValue,
-                    ultimo_nome: ultimoNomeValue,
-                    data_nasc: dataNascValue,
-                    ddd_telefone: dddTelefoneValue,
-                    email: emailIdValue
+                    check_in_date: check_in_dateValue,
+                    check_out_date: check_out_dateValue,
+                    qnt_pessoas: qntPessoas,
+                    reserva_valor: reservaValor,
                 })
             })
                 .then(response => {
                     if (response.status == 200) {
                         // Cadastro bem-sucedido.
-                        window.location.href="sucEditado.html"
+                        window.location.href="sucEditadoRes.html"
                         // Aqui, você pode redirecionar o usuário para outra página ou executar outras ações.
                     }
                     else if(response.status == 404){
-                        window.location.href="errCadastroExis.html"
+                        window.location.href="errCadastroRes.html"
                     }
                     else {
                         // Falha no cadastro.

@@ -1,6 +1,8 @@
 function preencherTabela() {
     var dataArray = [];
-    let id_cliente;
+    let id_reserva;
+    let numero_quarto;
+    let cpf_cliente;
     try {
         fetch('http://localhost:3000/reserva',{
             method:'GET',
@@ -14,29 +16,31 @@ function preencherTabela() {
         dataArray.push(...data);
 
         dataArray.map((item) => {
-            id_cliente = item.id_cliente;
+            id_reserva = item.id_reserva;
+            numero_quarto = item.numero_quarto;
+            cpf_cliente = item.cpf_cliente;
             console.log(item);
             const row = document.createElement('tr');
     
-            const primeiroNomeCell = document.createElement('td');
-            primeiroNomeCell.textContent = item.id_reserva;
-            row.appendChild(primeiroNomeCell);
-    
             const ultimoNomeCell = document.createElement('td');
-            ultimoNomeCell.textContent = item.id_quarto;
+            ultimoNomeCell.textContent = item.numero_quarto;
             row.appendChild(ultimoNomeCell);
 
             const cpfCell = document.createElement('td');
-            cpfCell.textContent = item.id_cliente;
+            cpfCell.textContent = item.cpf_cliente;
             row.appendChild(cpfCell);
 
             const telefoneCell = document.createElement('td');
-            telefoneCell.textContent = item.check-in_date;
+            formatedDate = new Date(item.check_in_date);
+            formatedDate = String(formatedDate.getDate()).padStart(2, '0') + "/" + String(formatedDate.getMonth() + 1).padStart(2, '0') + "/" + formatedDate.getFullYear();
+            telefoneCell.textContent = formatedDate;
             row.appendChild(telefoneCell);
 
 
             const checkOutCell = document.createElement('td');
-            checkOutCell.textContent = item.check-out_date;
+            formatedDate = new Date(item.check_out_date);
+            formatedDate = String(formatedDate.getDate()).padStart(2, '0') + "/" + String(formatedDate.getMonth() + 1).padStart(2, '0') + "/" + formatedDate.getFullYear();
+            checkOutCell.textContent = formatedDate;
             row.appendChild(checkOutCell);
             
 
@@ -60,18 +64,20 @@ function preencherTabela() {
             row.appendChild(actionsCell);
             tableBody.appendChild(row);
 
-            (function (id_cliente) {
+            (function (id_reserva) {
             function handleDeleteButtonClick() {
-                console.log(id_cliente);
-                window.location.href = `confExclusaoRes.html?id_cliente=${id_cliente}`;
+                console.log(id_reserva);
+                window.location.href = `confExclusaoRes.html?id_reserva=${id_reserva}?`;
             } 
               // Função para lidar com o clique no botão "Excluir"
             function handleEditButtonClick() {
-                window.location.href = `editReserva.html?id_cliente=${id_cliente}`;
+                console.log(id_reserva);
+                console.log(numero_quarto);
+                window.location.href = `editReserva.html?id_reserva=${id_reserva}&numero_quarto=${numero_quarto}&cpf_cliente=${cpf_cliente}`;
               }     
                 editButton.addEventListener('click',handleEditButtonClick);
                 deleteButton.addEventListener('click',handleDeleteButtonClick);
-            })(id_cliente);
+            })(id_reserva);
         });
     })
     } catch (error) {
