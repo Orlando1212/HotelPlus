@@ -26,7 +26,7 @@ async function getReserva(id) {
 
 async function createReserva(reserva) {
 		try{
-			resposta = await pool.query(queryCreateReserva, [reserva.id_quarto,reserva.id_cliente,reserva.check-in_date, reserva.check-out_date, reserva.qnt_pessoas,
+			resposta = await pool.query(queryCreateReserva, [reserva.id_quarto,reserva.id_cliente,reserva.check_in_date, reserva.check_out_date, reserva.qnt_pessoas,
 			reserva.reserva_valor]
 			);
 			console.log(resposta.rows);
@@ -60,7 +60,7 @@ async function reservaEntreDatas(inicio,fim) {
 
 async function updateReserva(id,reserva) {
 		try{
-			resposta = await pool.query(queryUpdateReserva, [reserva.check-in_date, reserva.check-out_date, reserva.qnt_pessoas,
+			resposta = await pool.query(queryUpdateReserva, [reserva.check_in_date, reserva.check_out_date, reserva.qnt_pessoas,
 			reserva.reserva_valor,id]
 			);
 			console.log(resposta.rows);
