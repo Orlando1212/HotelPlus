@@ -2,6 +2,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Definir a variável de ambiente "PATH" para incluir o diretório atual
 chrome_driver_path = os.path.abspath("chromedriver")
@@ -34,6 +36,14 @@ try:
     input_dataNasc.send_keys('01/01/2000')
 
     submit.click()
+
+    # Aguarda até que o novo botão de confirmação esteja visível na página
+    confirmation_button = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, "//p[@class='Text']"))
+    )
+
+    # Clica no botão de confirmação
+    confirmation_button.click()
 
     input("Pressione Enter após verificar os campos preenchidos...")
 
