@@ -26,7 +26,7 @@ async function getReserva(id) {
 
 async function createReserva(reserva) {
 		try{
-			resposta = await pool.query(queryCreateReserva, [reserva.id_quarto,reserva.id_cliente,reserva.check_in_date, reserva.check_out_date, reserva.qnt_pessoas,
+			resposta = await pool.query(queryCreateReserva, [reserva.numero_quarto,reserva.cpf_cliente,reserva.check_in_date, reserva.check_out_date, reserva.qnt_pessoas,
 			reserva.reserva_valor]
 			);
 			console.log(resposta.rows);
@@ -38,7 +38,6 @@ async function createReserva(reserva) {
 
 
 async function deleteReserva(id) {
-	console.log("delete cliente")
 	try{
 		resposta = await pool.query(queryDeleteReserva, [id]);
 		console.log(resposta.rows);
@@ -50,6 +49,7 @@ async function deleteReserva(id) {
 
 async function reservaEntreDatas(inicio,fim) {
 	try{
+		console.log('Entrou datas');
 		resposta = await pool.query(queryGetDataReserva, [inicio,fim]);
 		console.log(resposta.rows);
 		return resposta.rows;

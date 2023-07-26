@@ -103,7 +103,7 @@ p {
     opacity: 1;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type=text]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 

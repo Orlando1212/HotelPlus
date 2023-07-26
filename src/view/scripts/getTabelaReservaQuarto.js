@@ -14,7 +14,7 @@ function preencherTabela() {
         dataArray.push(...data);
 
         dataArray.map((item) => {
-            id_quarto = item.id_quarto;
+            numero_quarto = item.numero_quarto;
             console.log(item);
             const row = document.createElement('tr');
     
@@ -41,7 +41,15 @@ function preencherTabela() {
             actionsCell.appendChild(select);
 
             row.appendChild(actionsCell);
-            tableBody.appendChild(row);   
+            tableBody.appendChild(row);
+
+            (function (numero_quarto) {
+                function handleSelectButtonClick() {
+                    console.log(numero_quarto);
+                    window.location.href = `reservarQuartoDatas.html?numero_quarto=${numero_quarto}`;
+                } 
+                    select.addEventListener('click',handleSelectButtonClick);
+                })(numero_quarto);
     })
     }) 
     }catch (error) {

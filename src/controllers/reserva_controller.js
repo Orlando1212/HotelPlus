@@ -34,7 +34,6 @@ async function getReserva(req, res) {
 }
 
 async function reservaEntreDatas(req,res){
-	  console.log("entrou aqui");
 	  const { dataInicio, dataFim } = req.params;  
 	  try {
 		const reservas = reservaService.reservaEntreDatas(dataInicio, dataFim);
@@ -45,17 +44,18 @@ async function reservaEntreDatas(req,res){
 	};
 
 async function createReserva(req, res) {
-
+	console.log("entrou create")
 	const requestBody = ConstantesDeRequisicaoReserva(req)
 	try {	
-	   if(requestBody.check-in_date==undefined || requestBody.check-in_date==null || requestBody.check-in_date=="" ||
-	   requestBody.check-out_date ==undefined || requestBody.check-out_date ==null || requestBody.check-out_date =="" ||
+	   if(requestBody.check_in_date==undefined || requestBody.check_in_date==null || requestBody.check_in_date=="" ||
+	   requestBody.check_out_date ==undefined || requestBody.check_out_date ==null || requestBody.check_out_date =="" ||
 	   requestBody.qnt_pessoas == undefined || requestBody.qnt_pessoas == null || requestBody.qnt_pessoas == "" ||
 	   requestBody.reserva_valor == undefined || requestBody.reserva_valor == null || requestBody.reserva_valor == "" ){
 	   res.status(401)("Alguns dos campos está vazio!")
 		}
 
 		reservaData = requestBody;
+		console.log(reservaData);
 		novoReserva = await reservaService.createReserva(reservaData);
 		res.status(200).json(novoReserva);
 	  } catch (err) {
