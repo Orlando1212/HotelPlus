@@ -34,6 +34,7 @@ async function getReserva(req, res) {
 }
 
 async function reservaEntreDatas(req,res){
+	  console.log("entrou aqui");
 	  const { dataInicio, dataFim } = req.params;  
 	  try {
 		const reservas = reservaService.reservaEntreDatas(dataInicio, dataFim);
