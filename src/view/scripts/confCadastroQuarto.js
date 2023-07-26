@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         statusValue = statusValue;
 
         // Mostra os valores do formulário para o usuário antes de confirmar o cadastro
-        const confirmarCadastro = window.confirm(`Deseja confirmar o cadastro?\n\nNumeroQuarto: ${numeroQuartoValue}\nCapacidade: ${capacidadeValue}\nprecoNoite: ${precoNoiteValue}\ndescricao: ${descricaoValue}`);
-
-        if (confirmarCadastro) {
             // Envia os dados para o servidor usando a função fetch.
             fetch('http://localhost:3000/quarto', {
                 method: 'POST',
@@ -51,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Ocorreu um erro ao enviar a solicitação.
                     return alert('Ocorreu um erro ao cadastrar o cliente. Tente novamente mais tarde.');
                 });
-        }
     }
 
     // Função para obter o valor de um parâmetro de consulta do URL

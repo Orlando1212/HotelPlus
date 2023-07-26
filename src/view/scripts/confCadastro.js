@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         emailIdValue = getQueryParameter('emailId');
 
         // Mostra os valores do formulário para o usuário antes de confirmar o cadastro
-        const confirmarCadastro = window.confirm(`Deseja confirmar o cadastro?\n\nNome: ${primeiroNomeValue} ${ultimoNomeValue}\nCPF: ${cpfIdValue}\nTelefone: ${dddTelefoneValue}\nData de Nascimento: ${dataNascValue}\nE-mail: ${emailIdValue}`);
-
-        if (confirmarCadastro) {
+        
             // Envia os dados para o servidor usando a função fetch.
             fetch('http://localhost:3000/cliente', {
                 method: 'POST',
@@ -53,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Ocorreu um erro ao enviar a solicitação.
                     return alert('Ocorreu um erro ao cadastrar o cliente. Tente novamente mais tarde.');
                 });
-        }
     }
 
     // Função para obter o valor de um parâmetro de consulta do URL
