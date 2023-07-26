@@ -224,39 +224,3 @@ input[type="date"]::placeholder{
     color: #85DE76;
 }
 
-.Caixa-Botao-Limpar {
-    grid-column: 4;
-    box-shadow: 0 0 0 4px #85DE76;
-    border: 0;
-    border-radius: 10px;
-
-    width: 350px;
-    height: 66px;
-
-    font-family: Varela Round;
-    color: white;
-    font-size: 30px;
-    font-weight: 500;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.Botao-Limpar{
-    background-color: transparent;
-    border: 0;
-    border-radius: 5px;
-
-    font-family: Varela Round;
-    color: #85DE76;
-    font-size: 30px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.img-Limpar {
-    width: 40px;
-}
