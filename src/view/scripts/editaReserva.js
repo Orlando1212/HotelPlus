@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
       inputQuarto.value = valorQuarto;
       inputQuarto.setAttribute('readonly', true);
       inputCpf.value = valorCpf;
-      inputCpf.setAttribute('readonly', true);
     }
 
     // Variáveis para armazenar temporariamente os dados do formulário
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         id_reserva = id_reserva;
 
         // Redirecionar para a página EditaReserva passando os dados como parâmetros de consulta
-        window.location.href = `./confEditaReserva.html?numero_quarto=${encodeURIComponent(numeroQuartoValue)}&qnt_pessoas=${encodeURIComponent(qnt_pessoas)}&
+        window.location.href = `./confEditaReserva.html?numero_quarto=${encodeURIComponent(numero_quarto)}&qnt_pessoas=${encodeURIComponent(qnt_pessoas)}&
         reserva_valor=${encodeURIComponent(reserva_valor)}&cpf_cliente=${encodeURIComponent(cpf_cliente)}&id_reserva=${id_reserva}&check_in=${check_in_date}&
         check_out_date=${check_out_date}`;
     }
